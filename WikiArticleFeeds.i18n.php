@@ -10,7 +10,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'wikiarticlefeeds-desc' => 'Produces feeds generated from MediaWiki pages',
-	'wikiarticlefeeds-tracking-category' => 'RSS authoring page',
+	'wikiarticlefeeds-tracking-category' => 'Pages generating RSS feeds',
 	'wikiarticlefeeds_combined_description' => 'This is a combined feed, containing items from several feed sources.',
 );
 
