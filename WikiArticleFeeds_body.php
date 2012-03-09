@@ -2,13 +2,13 @@
 
 class WikiArticleFeeds{
 
-	function feedStart( $text, $params = array() ) {
-		global $wgParser, $wgWikiArticleFeedsTrackingCategory;
+	function feedStart( $text, $params = array(), Parser $parser ) {
+		global $wgWikiArticleFeedsTrackingCategory;
 
 		if ( $wgWikiArticleFeedsTrackingCategory === true ) {
-			$wgParser->addTrackingCategory( 'wikiarticlefeeds-tracking-category' );
+			$parser->addTrackingCategory( 'wikiarticlefeeds-tracking-category' );
 		} elseif ( is_string( $wgWikiArticleFeedsTrackingCategory ) ) {
-			$wgParser->addTrackingCategory( $wgWikiArticleFeedsTrackingCategory );
+			$parser->addTrackingCategory( $wgWikiArticleFeedsTrackingCategory );
 		}
 		return '<!-- FEED_START -->';
 	}
@@ -25,13 +25,13 @@ class WikiArticleFeeds{
 		return ( $text ? '<!-- ITEM_TAGS ' . base64_encode( serialize( $text ) ) . ' -->':'' );
 	}
 
-	function itemTagsFunction( $parser ) {
+	function itemTagsFunction( Parser $parser ) {
 		$tags = func_get_args();
 		array_shift( $tags );
 		return ( !empty( $tags ) ? '<pre>@ITEMTAGS@' . base64_encode( serialize( implode( ',', $tags ) ) ) . '@ITEMTAGS@</pre>':'' );
 	}
 
-	function itemTagsPlaceholderCorrections( $parser, &$text ) {
+	function itemTagsPlaceholderCorrections( Parser $parser, &$text ) {
 		$text = preg_replace(
 			'|<pre>@ITEMTAGS@([0-9a-zA-Z\\+\\/]+=*)@ITEMTAGS@</pre>|',
 			'<!-- ITEM_TAGS $1 -->',
@@ -41,7 +41,7 @@ class WikiArticleFeeds{
 	}
 
 	# Sets up the WikiArticleFeeds Parser hooks
-	static function wfWikiArticleFeedsSetup( $parser ) {
+	static function wfWikiArticleFeedsSetup( Parser $parser ) {
 		global $wgWikiArticleFeeds;
 
 		$parser->setHook( 'startFeed', array( $wgWikiArticleFeeds, 'feedStart' ) );
