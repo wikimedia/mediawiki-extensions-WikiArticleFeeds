@@ -10,6 +10,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'wikiarticlefeeds-desc' => 'Produces feeds generated from MediaWiki pages',
+	'wikiarticlefeeds-tracking-category' => 'RSS authoring page',
 	'wikiarticlefeeds_combined_description' => 'This is a combined feed, containing items from several feed sources.',
 );
 
@@ -19,6 +20,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'wikiarticlefeeds-desc' => '{{desc}}',
+	'wikiarticlefeeds-tracking-category' => 'The name of a category for all pages which use the WikiArticleFeeds parser extension. The category is automatically added unless the feature is disabled.',
 );
 
 /** Afrikaans (Afrikaans)

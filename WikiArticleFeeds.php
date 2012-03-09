@@ -157,3 +157,16 @@ $wgHooks['ArticlePurge'][] = 'WikiArticleFeeds::wfPurgeFeedsOnArticlePurge';
 
 $wgWikiArticleFeeds = new WikiArticleFeeds();
 $wgHooks['ParserBeforeTidy'][] = array( $wgWikiArticleFeeds, 'WikiArticleFeeds::itemTagsPlaceholderCorrections' );
+
+// Parameter to enable the automatic tracking category
+// for all pages using this parser extension
+//
+// Category name [[MediaWiki:Wikiarticlefeeds-tracking-category]] (default)
+// $wgWikiArticleFeedsTrackingCategory = true;
+//
+// you can assign a specific category name [[MediaWiki:Wikiarticlefeeds-mycategory]]
+// $wgWikiArticleFeedsTrackingCategory = 'wikiarticlefeeds-mycategory';
+//
+// you can disable the use of a tracking category
+// $wgWikiArticleFeedsTrackingCategory = false;
+$wgWikiArticleFeedsTrackingCategory = true;

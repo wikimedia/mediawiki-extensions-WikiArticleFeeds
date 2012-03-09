@@ -3,6 +3,13 @@
 class WikiArticleFeeds{
 
 	function feedStart( $text, $params = array() ) {
+		global $wgParser, $wgWikiArticleFeedsTrackingCategory;
+
+		if ( $wgWikiArticleFeedsTrackingCategory === true ) {
+			$wgParser->addTrackingCategory( 'wikiarticlefeeds-tracking-category' );
+		} elseif ( is_string( $wgWikiArticleFeedsTrackingCategory ) ) {
+			$wgParser->addTrackingCategory( $wgWikiArticleFeedsTrackingCategory );
+		}
 		return '<!-- FEED_START -->';
 	}
 
