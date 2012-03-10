@@ -111,9 +111,11 @@ $messages['cs'] = array(
 
 /** German (Deutsch)
  * @author Umherirrender
+ * @author Wikinaut
  */
 $messages['de'] = array(
 	'wikiarticlefeeds-desc' => 'Erzeugt aus MediaWiki-Seiten Feeds',
+	'wikiarticlefeeds-tracking-category' => 'RSS-Feeds erzeugende Seiten',
 	'wikiarticlefeeds_combined_description' => 'Dies ist ein kombinierter Feed, mit Elementen aus verschiedenen Quellen.',
 );
 
@@ -122,6 +124,7 @@ $messages['de'] = array(
  */
 $messages['dsb'] = array(
 	'wikiarticlefeeds-desc' => 'Napórajo kanale z nastawkow MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Boki, kótarež napóraju RSS-kanale',
 	'wikiarticlefeeds_combined_description' => 'To jo kombinaciski kanal, kótaryž wopśimujo zapiski z někotrych kanalowych žrědłow.',
 );
 
@@ -196,6 +199,7 @@ $messages['he'] = array(
  */
 $messages['hsb'] = array(
 	'wikiarticlefeeds-desc' => 'Płodźi kanale z nastawkow MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Strony, kotrež RSS-kanale wutworjeja',
 	'wikiarticlefeeds_combined_description' => 'To je kombinaciski kanal, kotryž zapiski z wjacorych kanalowych žórłow wobsahuje.',
 );
 
@@ -212,6 +216,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'wikiarticlefeeds-desc' => 'Produce syndicationes generate ab paginas MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Paginas que genera syndicationes RSS',
 	'wikiarticlefeeds_combined_description' => 'Isto es un syndication combinate, continente entratas de plure origines de syndicationes.',
 );
 
@@ -260,6 +265,7 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'wikiarticlefeeds-desc' => 'Прави емитувања создадени од МедијаВики страници',
+	'wikiarticlefeeds-tracking-category' => 'Страници што создаваат RSS-канали',
 	'wikiarticlefeeds_combined_description' => 'Ова е комбинирано емитување, со содржини од неколку напојни извори.',
 );
 
@@ -305,10 +311,12 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author BeginaFelicysym
  * @author Sp5uhe
  */
 $messages['pl'] = array(
 	'wikiarticlefeeds-desc' => 'Generuje ze stron MediaWiki dane dla kanałów informacyjnych',
+	'wikiarticlefeeds-tracking-category' => 'Strony generowania kanałów informacyjnych RSS',
 	'wikiarticlefeeds_combined_description' => 'Ten kanał zbiera informacje z kilku źródeł.',
 );
 
@@ -395,9 +403,11 @@ $messages['sr-el'] = array(
 
 /** Swedish (Svenska)
  * @author Micke
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'wikiarticlefeeds-desc' => 'Producerar feeds som genereras av MediaWikisidor',
+	'wikiarticlefeeds-tracking-category' => 'Sidor som genererar RSS-flöden',
 	'wikiarticlefeeds_combined_description' => 'Detta är en kombinerad feed som innehåller artiklar från flera källor.',
 );
 
