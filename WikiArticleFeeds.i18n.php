@@ -52,6 +52,7 @@ $messages['ar'] = array(
  */
 $messages['ast'] = array(
 	'wikiarticlefeeds-desc' => 'Produz fluxos RSS xeneraos poles páxines de MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Páxines que xeneren canales RSS',
 	'wikiarticlefeeds_combined_description' => "Esti ye un fluxu combináu, que contién elementos de fluxos d'orixe distintu.",
 );
 
@@ -64,9 +65,11 @@ $messages['bar'] = array(
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'wikiarticlefeeds-desc' => 'Стварае стужкі, утвораныя з артыкулаў MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Старонкі, якія ўтвараюць RSS-стужкі',
 	'wikiarticlefeeds_combined_description' => 'Гэта камбінаваная стужка, якая ўтрымлівае элемэнты з некалькіх крынічных стужак.',
 );
 
@@ -137,10 +140,12 @@ $messages['el'] = array(
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Locos epraix
  */
 $messages['es'] = array(
 	'wikiarticlefeeds-desc' => 'Produce feeds generados a partir de páginas MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Páginas que generan canales RSS',
 	'wikiarticlefeeds_combined_description' => 'Este es un feed combinado, que contiene elementos de varias fuentes.',
 );
 
