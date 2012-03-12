@@ -159,10 +159,12 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Gomoko
  * @author PieRRoMaN
  */
 $messages['fr'] = array(
 	'wikiarticlefeeds-desc' => 'Génère des flux depuis des pages MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Pages générant des flux RSS',
 	'wikiarticlefeeds_combined_description' => 'Ceci est un flux combiné qui contient des éléments issus de plusieurs sources.',
 );
 
@@ -179,6 +181,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'wikiarticlefeeds-desc' => 'Produce fontes de novas xeradas desde artigos MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Páxinas que producen fontes de novas RSS',
 	'wikiarticlefeeds_combined_description' => 'Esta é unha combinación de fontes de novas que contén elementos de varias fontes.',
 );
 
@@ -191,11 +194,13 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author Rotemliss
  * @author YaronSh
  */
 $messages['he'] = array(
 	'wikiarticlefeeds-desc' => 'יצירת הזנות מדפי מדיה־ויקי',
+	'wikiarticlefeeds-tracking-category' => 'דפים שמייצרים הזנות RSS',
 	'wikiarticlefeeds_combined_description' => 'זוהי הזנה משולבת, המכילה פריטים ממספר מקורות.',
 );
 
@@ -279,6 +284,7 @@ $messages['mk'] = array(
  */
 $messages['ms'] = array(
 	'wikiarticlefeeds-desc' => 'Menghasilkan suapan yang dijana daripada laman MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Laman-laman yang menjana suapan RSS',
 	'wikiarticlefeeds_combined_description' => 'Ini ialah suapan gabungan yang mengandungi perkara-perkara daripada beberapa sumber suapan.',
 );
 
@@ -291,10 +297,12 @@ $messages['nb'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
 	'wikiarticlefeeds-desc' => "Produceert feeds gegenereerd vanuit MediaWiki-pagina's",
+	'wikiarticlefeeds-tracking-category' => "Pagina's die RSS-feeds genereren",
 	'wikiarticlefeeds_combined_description' => 'Dit is een gecombineerde feed, met items objecten uit verschillende bronnen.',
 );
 
