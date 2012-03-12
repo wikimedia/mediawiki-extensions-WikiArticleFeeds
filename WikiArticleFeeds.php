@@ -4,7 +4,7 @@
  * @author Jim R. Wilson, Thomas Gries
  * @maintainer Thomas Gries
  *
- * @version 0.701
+ * @version 0.703
  * @copyright Copyright (C) 2007 Jim R. Wilson
  * @copyright Copyright (C) 2012 Thomas Gries
  * @license The MIT License - http://www.opensource.org/licenses/mit-license.php
@@ -56,6 +56,7 @@
  *
  * Versions
  *
+ * 0.703   adds the feed icon to the bottom of the toolbox in Monobook or like-minded skins.
  * 0.701   version string constant renamed to make it wiki-unique
  * 0.700   rewritten into a four-file version with class
  *         auto-discovery rss feedlinks come with the page title in it
@@ -123,7 +124,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
 }
 
-define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.701 20120223' );
+define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.703 20120312' );
 
 # Bring in supporting classes
 require_once( "$IP/includes/Feed.php" );

@@ -107,19 +107,19 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Add additional attributes to links to User- or User_talk pages.
-	* These are used later in wfGenerateWikiFeed to determine signatures with timestamps
-	* for attributing author and timestamp values to the feed item.
+	* Add additional attributes to links to User- or User_talk pages 
+	* It does this for all links on all pages 
+	* (even when we need this only for pages which generate a feed)
 	*
-	* Currently this method works only if the user page exists.
+	* Attributes are used later in wfGenerateWikiFeed to determine signatures with timestamps
+	* for attributing author and timestamp values to the feed item from the signatures.
 	*/
 	# https://www.mediawiki.org/wiki/Manual:Hooks/LinkEnd
-	static function wfWikiArticleFeedsAddSignatureMarker( $skin, $title, $options, $text, &$attribs, $ret ) {
-		global $wgWikiFeedPresent;
-		// wfDebug( "wfWikiArticleFeedsAddSignatureMarker: Text:". $title->getText() . " Namespace:".$title->getNamespace(). " exists:". $title->exists() . "\n" );
-		if ( $title->getNamespace() == NS_USER) {
+	static function wfWikiArticleFeedsAddSignatureMarker( $skin, Title $target, array $options, $text, array &$attribs, $ret ) {
+
+		if ( $target->getNamespace() == NS_USER) {
 			$attribs['userpage-link'] = 'true';
-		} elseif ( $title->getNamespace() == NS_USER_TALK ) {
+		} elseif ( $target->getNamespace() == NS_USER_TALK ) {
 			$attribs['usertalkpage-link'] = 'true';
 		}
 		return true;
@@ -132,7 +132,7 @@ class WikiArticleFeeds{
 	* @param QuickTemplate $template Instance of MonoBookTemplate or other QuickTemplate
 	*/
 	static function wfWikiArticleFeedsToolboxLinks( $template ) {
-		global $wgServer, $wgScript, $wgWikiFeedPresent;
+		global $wgServer, $wgScript, $wgStylePath, $wgWikiFeedPresent;
 
 		# Short-circuit if there are no Feeds present
 		if ( !$wgWikiFeedPresent ) {
@@ -151,6 +151,7 @@ class WikiArticleFeeds{
 		}
 
 		$result = '<li id="feedlinks">';
+		$feedIcon = $wgServer . $wgStylePath . "/common/images/feed-icon.png";
 
 		# Test for feedBurner presence
 		$burned = false;
@@ -166,6 +167,7 @@ class WikiArticleFeeds{
 					$result .=
 					'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
 					'<a href="http://feeds.feedburner.com/' . urlencode( $feedBurnerName ) . '?format=xml">' .
+					'<img style="margin-right:2px;" src="' . $feedIcon . '" border=0>' .
 					htmlspecialchars( $name ) . '</a>&#160;</span>';
 				}
 				$burned = true;
@@ -181,6 +183,7 @@ class WikiArticleFeeds{
 				$result .=
 				'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
 				'<a href="' . htmlspecialchars( $baseUrl . $feed ) . '">' .
+				'<img style="margin-right:2px;" src="' . $feedIcon . '" border=0>' .
 				htmlspecialchars( $name ) . '</a>&#160;</span>';
 			}
 		}
