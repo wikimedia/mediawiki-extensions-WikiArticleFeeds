@@ -394,6 +394,7 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'wikiarticlefeeds-desc' => 'Ustvari vire, ustvarjene iz strani MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Strani, ki ustvarjajo vire RSS',
 	'wikiarticlefeeds_combined_description' => 'To je združen vir, ki vsebuje elemente iz več virov.',
 );
 
