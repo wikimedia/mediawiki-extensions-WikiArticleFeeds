@@ -4,7 +4,7 @@
  * @author Jim R. Wilson, Thomas Gries
  * @maintainer Thomas Gries
  *
- * @version 0.703
+ * @version 0.71
  * @copyright Copyright (C) 2007 Jim R. Wilson
  * @copyright Copyright (C) 2012 Thomas Gries
  * @license The MIT License - http://www.opensource.org/licenses/mit-license.php
@@ -56,6 +56,7 @@
  *
  * Versions
  *
+ * 0.71    removed $wgWikiArticleFeedsTrackingCategory parameter for tracking category
  * 0.703   adds the feed icon to the bottom of the toolbox in Monobook or like-minded skins.
  * 0.701   version string constant renamed to make it wiki-unique
  * 0.700   rewritten into a four-file version with class
@@ -124,7 +125,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
 }
 
-define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.703 20120312' );
+define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.71 20120319' );
 
 # Bring in supporting classes
 require_once( "$IP/includes/Feed.php" );
@@ -158,16 +159,3 @@ $wgHooks['ArticlePurge'][] = 'WikiArticleFeeds::wfPurgeFeedsOnArticlePurge';
 
 $wgWikiArticleFeeds = new WikiArticleFeeds();
 $wgHooks['ParserBeforeTidy'][] = array( $wgWikiArticleFeeds, 'WikiArticleFeeds::itemTagsPlaceholderCorrections' );
-
-// Parameter to enable the automatic tracking category
-// for all pages using this parser extension
-//
-// Category name [[MediaWiki:Wikiarticlefeeds-tracking-category]] (default)
-// $wgWikiArticleFeedsTrackingCategory = true;
-//
-// you can assign a specific category name [[MediaWiki:Wikiarticlefeeds-mycategory]]
-// $wgWikiArticleFeedsTrackingCategory = 'wikiarticlefeeds-mycategory';
-//
-// you can disable the use of a tracking category
-// $wgWikiArticleFeedsTrackingCategory = false;
-$wgWikiArticleFeedsTrackingCategory = true;
