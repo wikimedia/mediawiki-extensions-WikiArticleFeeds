@@ -309,6 +309,7 @@ $messages['nl'] = array(
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'wikiarticlefeeds-desc' => 'Produserer mating generert frå MediaWiki-sider',
