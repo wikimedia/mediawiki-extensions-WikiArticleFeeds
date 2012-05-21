@@ -239,10 +239,12 @@ $messages['id'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Darth Kule
  */
 $messages['it'] = array(
 	'wikiarticlefeeds-desc' => 'Produce feed generati da pagine MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Pagine che generano feed RSS',
 	'wikiarticlefeeds_combined_description' => 'Questo è un feed combinato, contenente elementi da diverse risorse feed.',
 );
 
