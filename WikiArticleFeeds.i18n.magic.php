@@ -20,6 +20,11 @@ $magicWords['arz'] = array(
 	'itemtags' => array( 0, 'وسوم_المدخلة', 'itemtags' ),
 );
 
+/** German (Deutsch) */
+$magicWords['de'] = array(
+	'itemtags' => array( 0, 'elementmarkierungen' ),
+);
+
 /** Japanese (日本語) */
 $magicWords['ja'] = array(
 	'itemtags' => array( 0, 'アイテムタグ' ),
