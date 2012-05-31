@@ -337,10 +337,12 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
 	'wikiarticlefeeds-desc' => 'A prodov feed generà da le pàgine ëd MediaWiki',
+	'wikiarticlefeeds-tracking-category' => "Pàgine ch'a género dij fluss RSS",
 	'wikiarticlefeeds_combined_description' => "Sto sì a l'é un feed combinà, che a conten element da vàire sorziss ëd feed.",
 );
 
