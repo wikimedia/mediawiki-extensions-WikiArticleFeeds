@@ -186,10 +186,12 @@ $messages['gl'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
 	'wikiarticlefeeds-desc' => 'Leit Feeds aa us MediaWiki-Artikel',
+	'wikiarticlefeeds-tracking-category' => 'Syte, wo RSS-Feeds erzeuge',
 	'wikiarticlefeeds_combined_description' => 'Des isch e Kombinations-Feed, wu s Inhalt vu verschidene Feed-Quälle din het.',
 );
 
