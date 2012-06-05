@@ -262,7 +262,8 @@ $messages['ja'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'wikiarticlefeeds-desc' => 'Määt ene Abonnomang-Kannal (<i lang="en">Feed</i>) fun de Atikelle us em Wiki',
+	'wikiarticlefeeds-desc' => 'Määt ene Abonnomang-Kannal (<i lang="en">feed</i>) fun de Atikelle us em Wiki',
+	'wikiarticlefeeds-tracking-category' => 'Sigge, di RSS-Kanääl aanbeede',
 	'wikiarticlefeeds_combined_description' => 'Hee sin Saache uß ongercheidlijje Quelle zosamme ze fenge.',
 );
 
