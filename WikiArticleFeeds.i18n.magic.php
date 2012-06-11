@@ -30,7 +30,12 @@ $magicWords['ja'] = array(
 	'itemtags' => array( 0, 'アイテムタグ' ),
 );
 
-/** Macedonian (Македонски) */
+/** Korean (한국어) */
+$magicWords['ko'] = array(
+	'itemtags' => array( 0, '항목태그' ),
+);
+
+/** Macedonian (македонски) */
 $magicWords['mk'] = array(
 	'itemtags' => array( 0, 'ознакизаставки' ),
 );
@@ -55,12 +60,12 @@ $magicWords['nl'] = array(
 	'itemtags' => array( 0, 'itemlabels' ),
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬) */
 $magicWords['sr-ec'] = array(
 	'itemtags' => array( 0, 'ознакеставке', 'ознаке_ставке' ),
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪srpski (latinica)‬) */
 $magicWords['sr-el'] = array(
 	'itemtags' => array( 0, 'oznakestavke', 'oznake_stavke' ),
 );
