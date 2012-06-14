@@ -47,7 +47,7 @@ $messages['ar'] = array(
 	'wikiarticlefeeds_combined_description' => 'هذا تلقيم مركب، يحتوي على مدخلات من عدة مصادر للتلقيم.',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -81,7 +81,7 @@ $messages['bn'] = array(
 	'wikiarticlefeeds_combined_description' => 'এটি একটি সমন্বিত ফিড, যেখানে কয়েকটি ফিড উৎস থেকে আনা আইটেম রয়েছে।',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -89,7 +89,7 @@ $messages['br'] = array(
 	'wikiarticlefeeds_combined_description' => 'Setu aze ul lanvad kenaozet ennañ elfennoù diwar meur a vammenn.',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -97,14 +97,14 @@ $messages['bs'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ovo je kombinirani fid, sadrži stavke iz nekoliko fid izvora.',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Paucabot
  */
 $messages['ca'] = array(
 	'wikiarticlefeeds-desc' => 'Produeix fils RSS generats per les pàgines MediaWiki',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
@@ -139,7 +139,7 @@ $messages['el'] = array(
 	'wikiarticlefeeds_combined_description' => 'Αυτή είναι μια συνδυασμένη ροή ενημερώσεων που περιέχει αντικείμενα από διάφορες πηγές.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Locos epraix
  */
@@ -149,7 +149,7 @@ $messages['es'] = array(
 	'wikiarticlefeeds_combined_description' => 'Este es un feed combinado, que contiene elementos de varias fuentes.',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  */
@@ -158,7 +158,7 @@ $messages['fi'] = array(
 	'wikiarticlefeeds_combined_description' => 'Tämä on yhdistetty syöte, joka sisältää kohteita useasta syötelähteestä.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author PieRRoMaN
  */
@@ -168,7 +168,7 @@ $messages['fr'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ceci est un flux combiné qui contient des éléments issus de plusieurs sources.',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -215,7 +215,7 @@ $messages['hsb'] = array(
 	'wikiarticlefeeds_combined_description' => 'To je kombinaciski kanal, kotryž zapiski z wjacorych kanalowych žórłow wobsahuje.',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
@@ -223,7 +223,7 @@ $messages['hu'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ez egy kombinált hírcsatorna, számos hírcsatorna-forrásból tartalmaz elemeket.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -240,7 +240,7 @@ $messages['id'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ini merupakan sindikasi gabungan yang berasal dari beberapa sumber sindikasi.',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Darth Kule
  */
@@ -275,7 +275,7 @@ $messages['lb'] = array(
 	'wikiarticlefeeds_combined_description' => 'Dëst ass e kombinéierte "Feed" an deem Objeten aus verschiddene "Feed" Quellen dra sinn.',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -311,7 +311,7 @@ $messages['nl'] = array(
 	'wikiarticlefeeds_combined_description' => 'Dit is een gecombineerde feed, met items objecten uit verschillende bronnen.',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
  * @author Njardarlogar
@@ -321,7 +321,7 @@ $messages['nn'] = array(
 	'wikiarticlefeeds_combined_description' => 'Dette er ein kombinert feed, som inneheld delar frå fleire feed-kjelder.',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -329,7 +329,7 @@ $messages['oc'] = array(
 	'wikiarticlefeeds_combined_description' => "Aquò es un flux combinat que conten d'elements eissits de mantuna font.",
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  * @author Sp5uhe
  */
@@ -349,7 +349,7 @@ $messages['pms'] = array(
 	'wikiarticlefeeds_combined_description' => "Sto sì a l'é un feed combinà, che a conten element da vàire sorziss ëd feed.",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -357,7 +357,7 @@ $messages['pt'] = array(
 	'wikiarticlefeeds_combined_description' => 'Este é um feed combinado, contendo itens de feeds de várias fontes.',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  */
 $messages['pt-br'] = array(
@@ -365,7 +365,7 @@ $messages['pt-br'] = array(
 	'wikiarticlefeeds_combined_description' => 'Esse é um "feed" combinado, contendo itens de várias fontes de "feeds".',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -373,7 +373,7 @@ $messages['roa-tara'] = array(
 	'wikiarticlefeeds_combined_description' => "Quistejè 'nu feed combinate, ca tène articole da cchiù sorgente de feed.",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -389,7 +389,7 @@ $messages['si'] = array(
 	'wikiarticlefeeds_combined_description' => 'මෙය සංයුක්ත සංග්‍රහයකි,විවිධ සංග්‍රහ මූලාශ්‍රයන්වල අයිතම අඩංගුවේ.',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -397,7 +397,7 @@ $messages['sk'] = array(
 	'wikiarticlefeeds_combined_description' => 'Toto je kombinovaný kanál, ktorý obsahuje položky z niekoľkých zdrojov kanálov.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -406,7 +406,7 @@ $messages['sl'] = array(
 	'wikiarticlefeeds_combined_description' => 'To je združen vir, ki vsebuje elemente iz več virov.',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -415,7 +415,7 @@ $messages['sr-ec'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ово је комбиновани довод који садржи ставке из неколико извора.',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Rancher
  */
 $messages['sr-el'] = array(
@@ -423,7 +423,7 @@ $messages['sr-el'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ovo je kombinovani dovod koji sadrži stavke iz nekoliko izvora.',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Micke
  * @author WikiPhoenix
  */
@@ -464,7 +464,7 @@ $messages['vi'] = array(
 	'wikiarticlefeeds_combined_description' => 'Đây là bản tin phối hợp, chứa các mẩu tin từ nhiều nguồn tin khác nhau.',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Wilsonmess
  */
 $messages['zh-hans'] = array(
@@ -472,7 +472,7 @@ $messages['zh-hans'] = array(
 	'wikiarticlefeeds_combined_description' => '这是一个包含多个源来源的复合源。',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
