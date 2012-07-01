@@ -63,7 +63,7 @@ $messages['bar'] = array(
 	'wikiarticlefeeds-desc' => 'Eazeigt Feeds aus MediaWiki-Seitn',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -122,7 +122,7 @@ $messages['de'] = array(
 	'wikiarticlefeeds_combined_description' => 'Dies ist ein kombinierter Feed, mit Elementen aus verschiedenen Quellen.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -176,7 +176,7 @@ $messages['frp'] = array(
 	'wikiarticlefeeds_combined_description' => 'O est un flux combinâ que contint des èlèments que vegnont d’un mouél de sôrses.',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -206,7 +206,7 @@ $messages['he'] = array(
 	'wikiarticlefeeds_combined_description' => 'זוהי הזנה משולבת, המכילה פריטים ממספר מקורות.',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
