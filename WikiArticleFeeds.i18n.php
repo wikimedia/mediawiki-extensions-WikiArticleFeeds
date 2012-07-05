@@ -445,6 +445,7 @@ $messages['te'] = array(
  */
 $messages['tl'] = array(
 	'wikiarticlefeeds-desc' => 'Gumagawa ng mga pasubong nalikha mula sa mga lathalain ng MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Mga pahinang lumilikha ng mga pakain na RSS',
 	'wikiarticlefeeds_combined_description' => 'Isa itong pinagsamang pasubo, naglalamang ng mga bagay mula sa ilang pinagmulang mga pasubo.',
 );
 
