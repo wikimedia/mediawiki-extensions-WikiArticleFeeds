@@ -106,9 +106,11 @@ $messages['ca'] = array(
 
 /** Czech (česky)
  * @author Matěj Grabovský
+ * @author Mormegil
  */
 $messages['cs'] = array(
 	'wikiarticlefeeds-desc' => 'Vytváří kanály ze stránek MediaWiki.',
+	'wikiarticlefeeds-tracking-category' => 'Stránky generující RSS kanály',
 	'wikiarticlefeeds_combined_description' => 'Toto je kombinovaný kanál obsahující položky z několika zdrojů kanálů.',
 );
 
