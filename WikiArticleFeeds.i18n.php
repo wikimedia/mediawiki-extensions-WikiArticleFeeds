@@ -219,9 +219,11 @@ $messages['hsb'] = array(
 
 /** Hungarian (magyar)
  * @author Glanthor Reviol
+ * @author TK-999
  */
 $messages['hu'] = array(
 	'wikiarticlefeeds-desc' => 'Hírcsatornákat generál MediaWiki lapokból',
+	'wikiarticlefeeds-tracking-category' => 'RSS-hírcsatornákat előállító oldalak',
 	'wikiarticlefeeds_combined_description' => 'Ez egy kombinált hírcsatorna, számos hírcsatorna-forrásból tartalmaz elemeket.',
 );
 
