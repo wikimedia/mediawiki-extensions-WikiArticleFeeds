@@ -257,10 +257,11 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Fryed-peach
+ * @author Shirayuki
  */
 $messages['ja'] = array(
 	'wikiarticlefeeds-desc' => 'MediaWiki のページから生成されたフィードを発行する',
-	'wikiarticlefeeds_combined_description' => 'これは合成されたフィードで、いくつかのフィード元からの項目を含んでいます。',
+	'wikiarticlefeeds_combined_description' => 'これは合成されたフィードであり、複数のフィード元からの項目を含んでいます。',
 );
 
 /** Colognian (Ripoarisch)
