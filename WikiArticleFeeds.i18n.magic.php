@@ -60,12 +60,12 @@ $magicWords['nl'] = array(
 	'itemtags' => array( 0, 'itemlabels' ),
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $magicWords['sr-ec'] = array(
 	'itemtags' => array( 0, 'ознакеставке', 'ознаке_ставке' ),
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $magicWords['sr-el'] = array(
 	'itemtags' => array( 0, 'oznakestavke', 'oznake_stavke' ),
 );
