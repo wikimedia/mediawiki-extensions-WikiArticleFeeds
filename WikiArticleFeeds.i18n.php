@@ -63,7 +63,7 @@ $messages['bar'] = array(
 	'wikiarticlefeeds-desc' => 'Eazeigt Feeds aus MediaWiki-Seitn',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -299,7 +299,7 @@ $messages['ms'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ini ialah suapan gabungan yang mengandungi perkara-perkara daripada beberapa sumber suapan.',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -317,7 +317,7 @@ $messages['nl'] = array(
 	'wikiarticlefeeds_combined_description' => 'Dit is een gecombineerde feed, met items objecten uit verschillende bronnen.',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  * @author Harald Khan
  * @author Njardarlogar
@@ -412,7 +412,7 @@ $messages['sl'] = array(
 	'wikiarticlefeeds_combined_description' => 'To je združen vir, ki vsebuje elemente iz več virov.',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -421,7 +421,7 @@ $messages['sr-ec'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ово је комбиновани довод који садржи ставке из неколико извора.',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Rancher
  */
 $messages['sr-el'] = array(
@@ -471,7 +471,7 @@ $messages['vi'] = array(
 	'wikiarticlefeeds_combined_description' => 'Đây là bản tin phối hợp, chứa các mẩu tin từ nhiều nguồn tin khác nhau.',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Wilsonmess
  */
 $messages['zh-hans'] = array(
@@ -479,7 +479,7 @@ $messages['zh-hans'] = array(
 	'wikiarticlefeeds_combined_description' => '这是一个包含多个源来源的复合源。',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
