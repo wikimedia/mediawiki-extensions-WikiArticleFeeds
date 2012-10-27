@@ -264,6 +264,15 @@ $messages['ja'] = array(
 	'wikiarticlefeeds_combined_description' => 'これは合成されたフィードであり、複数のフィード元からの項目を含んでいます。',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'wikiarticlefeeds-desc' => '미디어위키 문서에서 생성한 피드를 발행',
+	'wikiarticlefeeds-tracking-category' => 'RSS 피드를 생성하는 문서',
+	'wikiarticlefeeds_combined_description' => '몇 가지 피드 원본에서 항목을 포함하여 결합된 피드입니다.',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
@@ -486,4 +495,3 @@ $messages['zh-hant'] = array(
 	'wikiarticlefeeds-desc' => '為 MediaWiki 頁面產生消息來源',
 	'wikiarticlefeeds_combined_description' => '這是一個包含多個 feed 來源的復合源。',
 );
-
