@@ -489,9 +489,11 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
-	'wikiarticlefeeds-desc' => '為 MediaWiki 頁面產生消息來源',
+	'wikiarticlefeeds-desc' => '為MediaWiki頁面產生消息來源',
+	'wikiarticlefeeds-tracking-category' => '頁面正在生成RSS消息來源',
 	'wikiarticlefeeds_combined_description' => '這是一個包含多個 feed 來源的復合源。',
 );
