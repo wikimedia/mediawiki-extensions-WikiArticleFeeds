@@ -154,9 +154,11 @@ $messages['es'] = array(
 /** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Nedergard
  */
 $messages['fi'] = array(
 	'wikiarticlefeeds-desc' => 'Valmistaa syötteitä, jotka tuotetaan MediaWikin sivuista',
+	'wikiarticlefeeds-tracking-category' => 'Sivut, jotka generoivat RSS-syötteitä',
 	'wikiarticlefeeds_combined_description' => 'Tämä on yhdistetty syöte, joka sisältää kohteita useasta syötelähteestä.',
 );
 
