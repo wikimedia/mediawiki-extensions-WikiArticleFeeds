@@ -474,6 +474,15 @@ $messages['tr'] = array(
 	'wikiarticlefeeds_combined_description' => 'Bu birleşik bir beslemedir ve çeşitli besleme kaynaklarının öğelerini içermektedir.',
 );
 
+/** Ukrainian (українська)
+ * @author Ата
+ */
+$messages['uk'] = array(
+	'wikiarticlefeeds-desc' => 'Створює канали на основі сторінок MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Сторінки, що генерують RSS-канали',
+	'wikiarticlefeeds_combined_description' => 'Це комбінований канал, що містить елементи з декількох джерел.',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  */
