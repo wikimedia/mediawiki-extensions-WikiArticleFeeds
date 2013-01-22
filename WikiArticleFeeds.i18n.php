@@ -343,6 +343,7 @@ $messages['nn'] = array(
  */
 $messages['oc'] = array(
 	'wikiarticlefeeds-desc' => 'Genèra de fluxes dempuèi de paginas MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Paginas que generan de fluxes RSS',
 	'wikiarticlefeeds_combined_description' => "Aquò es un flux combinat que conten d'elements eissits de mantuna font.",
 );
 
