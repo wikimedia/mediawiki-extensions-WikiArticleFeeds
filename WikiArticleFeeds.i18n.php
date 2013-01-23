@@ -497,9 +497,11 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Wilsonmess
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'wikiarticlefeeds-desc' => '为MediaWiki页面生成源',
+	'wikiarticlefeeds-tracking-category' => '页面正在生成RSS源',
 	'wikiarticlefeeds_combined_description' => '这是一个包含多个源来源的复合源。',
 );
 
