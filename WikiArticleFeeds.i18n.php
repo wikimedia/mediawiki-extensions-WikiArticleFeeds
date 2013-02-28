@@ -17,9 +17,10 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Fryed-peach
  * @author Purodha
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'wikiarticlefeeds-desc' => '{{desc}}',
+	'wikiarticlefeeds-desc' => '{{desc|name=Wiki Article Feeds|url=http://www.mediawiki.org/wiki/Extension:WikiArticleFeeds}}',
 	'wikiarticlefeeds-tracking-category' => 'The name of a category for all pages which use the WikiArticleFeeds parser extension. The category is automatically added unless the feature is disabled.',
 );
 
@@ -263,6 +264,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'wikiarticlefeeds-desc' => 'MediaWiki のページから生成されたフィードを発行する',
+	'wikiarticlefeeds-tracking-category' => 'RSSフィードを生成するページ',
 	'wikiarticlefeeds_combined_description' => 'これは合成されたフィードであり、複数のフィード元からの項目を含んでいます。',
 );
 
