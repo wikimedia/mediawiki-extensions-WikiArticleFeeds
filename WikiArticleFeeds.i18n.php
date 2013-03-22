@@ -76,9 +76,11 @@ $messages['be-tarask'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Leemon2010
  */
 $messages['bn'] = array(
 	'wikiarticlefeeds-desc' => 'মিডিয়াউইকি পাতা থেকে ফিড উৎপন্ন করে',
+	'wikiarticlefeeds-tracking-category' => 'আরএসএস ফিডস উৎপাদিত পৃষ্ঠাসমূহ',
 	'wikiarticlefeeds_combined_description' => 'এটি একটি সমন্বিত ফিড, যেখানে কয়েকটি ফিড উৎস থেকে আনা আইটেম রয়েছে।',
 );
 
