@@ -21,7 +21,9 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'wikiarticlefeeds-desc' => '{{desc|name=Wiki Article Feeds|url=http://www.mediawiki.org/wiki/Extension:WikiArticleFeeds}}',
-	'wikiarticlefeeds-tracking-category' => 'The name of a category for all pages which use the WikiArticleFeeds parser extension. The category is automatically added unless the feature is disabled.',
+	'wikiarticlefeeds-tracking-category' => 'Used as category name.
+The name of a category for all pages which use the WikiArticleFeeds parser extension. The category is automatically added unless the feature is disabled.',
+	'wikiarticlefeeds_combined_description' => 'Used as description for the feed, if the description is not defined, while parsing feeds.',
 );
 
 /** Afrikaans (Afrikaans)
