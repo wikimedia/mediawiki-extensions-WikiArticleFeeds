@@ -14,10 +14,7 @@ $messages['en'] = array(
 	'wikiarticlefeeds_combined_description' => 'This is a combined feed, containing items from several feed sources.',
 );
 
-/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
-
-It might be easier to translate it as "translation guidelines" or "translation help".
-{{Identical|Message documentation}})
+/** Message documentation (Message documentation)
  * @author Fryed-peach
  * @author Purodha
  * @author Shirayuki
@@ -319,7 +316,7 @@ $messages['ms'] = array(
 	'wikiarticlefeeds_combined_description' => 'Ini ialah suapan gabungan yang mengandungi perkara-perkara daripada beberapa sumber suapan.',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -337,7 +334,7 @@ $messages['nl'] = array(
 	'wikiarticlefeeds_combined_description' => 'Dit is een gecombineerde feed, met items objecten uit verschillende bronnen.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  * @author Harald Khan
  * @author Njardarlogar
