@@ -477,10 +477,12 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Incelemeelemani
  * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'wikiarticlefeeds-desc' => 'MediaWiki sayfaları kaynak alınarak oluşturulan beslemeler oluşturur',
+	'wikiarticlefeeds-tracking-category' => 'RSS akışları oluşturma sayfaları',
 	'wikiarticlefeeds_combined_description' => 'Bu birleşik bir beslemedir ve çeşitli besleme kaynaklarının öğelerini içermektedir.',
 );
 
