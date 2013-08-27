@@ -496,11 +496,12 @@ $messages['uk'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author Vinhtantran
  */
 $messages['vi'] = array(
 	'wikiarticlefeeds-desc' => 'Tạo ra các bản tin do các trang MediaWiki tạo ra',
-	'wikiarticlefeeds_combined_description' => 'Đây là bản tin phối hợp, chứa các mẩu tin từ nhiều nguồn tin khác nhau.',
+	'wikiarticlefeeds_combined_description' => 'Đây là nguồn cấp dữ liệu phối hợp, chứa các bài tin tức từ nhiều nguồn cấp dữ liệu khác nhau.',
 );
 
 /** Simplified Chinese (中文（简体）‎)
