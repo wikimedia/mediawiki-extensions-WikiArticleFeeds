@@ -399,10 +399,12 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (русский)
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'wikiarticlefeeds-desc' => 'Создаёт каналы на основе статей MediaWiki',
+	'wikiarticlefeeds-tracking-category' => 'Страницы, генерирующие RSS-каналы',
 	'wikiarticlefeeds_combined_description' => 'Это составной канал, содержащий материалы из нескольких источников.',
 );
 
