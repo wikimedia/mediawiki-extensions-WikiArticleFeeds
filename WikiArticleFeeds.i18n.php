@@ -109,7 +109,7 @@ $messages['ca'] = array(
 	'wikiarticlefeeds-desc' => 'Produeix fils RSS generats per les pàgines MediaWiki',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Matěj Grabovský
  * @author Mormegil
  */
