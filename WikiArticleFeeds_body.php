@@ -55,20 +55,18 @@ class WikiArticleFeeds{
 	* @param $text Article/Output text.
 	*/
 	static function wfAddWikiFeedHeaders( $out, $text ) {
-		global $wgTitle;
-	
 		# Short-circuit if this article contains no feeds
 		if ( !preg_match( '/<!-- FEED_START -->/m', $text ) ) return true;
 
 		$rssArr = array(
 			'rel' => 'alternate',
 			'type' => 'application/rss+xml',
-			'title' => $wgTitle->getText() . ' - RSS 2.0',
+			'title' => $out->getTitle()->getText() . ' - RSS 2.0',
 		);
 		$atomArr = array(
 			'rel' => 'alternate',
 			'type' => 'application/atom+xml',
-			'title' => $wgTitle->getText() . ' - Atom 0.3',
+			'title' => $out->getTitle()->getText() . ' - Atom 0.3',
 		);
 
 		# Test for feedBurner presence
@@ -133,12 +131,7 @@ class WikiArticleFeeds{
 			return true;
 		}
 
-		if ( is_callable( $template, 'getSkin' ) ) {
-			$title = $template->getSkin()->getTitle();
-		} else {
-			global $wgTitle;
-			$title = $wgTitle;
-		}
+		$title = $template->getSkin()->getTitle();
 
 		if ( $title->getNamespace() < NS_MAIN ) {
 			return true;
