@@ -156,6 +156,15 @@ $messages['es'] = array(
 	'wikiarticlefeeds_combined_description' => 'Este es un feed combinado, que contiene elementos de varias fuentes.',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'wikiarticlefeeds-desc' => 'تولید فیدهای تولید شده از صفحات مدیاویکی',
+	'wikiarticlefeeds-tracking-category' => 'تولید فیدهای آر‌اس‌‌اس صفحات',
+	'wikiarticlefeeds_combined_description' => 'این یک فید ترکیب شده‌است، شامل مواردی از چندین منابع فید.',
+);
+
 /** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
