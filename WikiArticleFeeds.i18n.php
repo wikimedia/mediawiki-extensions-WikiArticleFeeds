@@ -11,6 +11,7 @@ $messages = array();
 $messages['en'] = array(
 	'wikiarticlefeeds-desc' => 'Produces feeds generated from MediaWiki pages',
 	'wikiarticlefeeds-tracking-category' => 'Pages generating RSS feeds',
+	'wikiarticlefeeds-tracking-category-desc' => 'The page generates an RSS feed.',
 	'wikiarticlefeeds_combined_description' => 'This is a combined feed, containing items from several feed sources.',
 );
 
@@ -23,6 +24,7 @@ $messages['qqq'] = array(
 	'wikiarticlefeeds-desc' => '{{desc|name=Wiki Article Feeds|url=http://www.mediawiki.org/wiki/Extension:WikiArticleFeeds}}',
 	'wikiarticlefeeds-tracking-category' => 'Used as category name.
 The name of a category for all pages which use the WikiArticleFeeds parser extension. The category is automatically added unless the feature is disabled.',
+	'wikiarticlefeeds-tracking-category-desc' => 'Description on [[Special:TrackingCategories]] for the {{msg-mw|wikiarticlefeeds-tracking-category}} tracking category.',
 	'wikiarticlefeeds_combined_description' => 'Used as description for the feed, if the description is not defined, while parsing feeds.',
 );
 

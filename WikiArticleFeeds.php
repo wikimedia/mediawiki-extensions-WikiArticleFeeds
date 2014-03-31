@@ -145,6 +145,8 @@ $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['WikiArticleFeeds'] = $dir . 'WikiArticleFeeds.i18n.php';
 $wgExtensionMessagesFiles['WikiArticleFeedsMagic'] = $dir . 'WikiArticleFeeds.i18n.magic.php';
 
+# Tracking category listed on Special:TrackingCategories
+$wgTrackingCategories[] = 'wikiarticlefeeds-tracking-category';
 
 # Create global instance
 $wgAutoloadClasses['WikiArticleFeeds'] = $dir . 'WikiArticleFeeds_body.php';
