@@ -122,12 +122,14 @@ $messages['cs'] = array(
 );
 
 /** German (Deutsch)
+ * @author Metalhead64
  * @author Umherirrender
  * @author Wikinaut
  */
 $messages['de'] = array(
 	'wikiarticlefeeds-desc' => 'Erzeugt aus MediaWiki-Seiten Feeds',
 	'wikiarticlefeeds-tracking-category' => 'RSS-Feeds erzeugende Seiten',
+	'wikiarticlefeeds-tracking-category-desc' => 'Die Seite erzeugt einen RSS-Feed.',
 	'wikiarticlefeeds_combined_description' => 'Dies ist ein kombinierter Feed, mit Elementen aus verschiedenen Quellen.',
 );
 
