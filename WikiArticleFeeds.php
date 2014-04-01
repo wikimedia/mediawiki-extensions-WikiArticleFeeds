@@ -64,7 +64,7 @@
  * 0.672   changed certain !empty() to isset()
  * 0.671   added ob_start() to prevent headers-already sent problem
  *         added check for undefined variable
- *         removed host wiki $wgSitename from the RSS feed title. 
+ *         removed host wiki $wgSitename from the RSS feed title.
  *         feed title has now the programmatic form 'Pagename - Feed' which looks nice."
  *         recode feed publication timestamps in UTC
  *         refactored the source code comment section layout
@@ -125,7 +125,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
 }
 
-define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.71 20120319' );
+define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.72.0 20140401' );
 
 # Bring in supporting classes
 require_once( "$IP/includes/Feed.php" );
@@ -142,6 +142,7 @@ $wgExtensionCredits['specialpage'][] = array(
 );
 
 $dir = dirname( __FILE__ ) . '/';
+$wgMessagesDirs['WikiArticleFeeds'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['WikiArticleFeeds'] = $dir . 'WikiArticleFeeds.i18n.php';
 $wgExtensionMessagesFiles['WikiArticleFeedsMagic'] = $dir . 'WikiArticleFeeds.i18n.magic.php';
 

@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Armando-Martin",
+            "Locos epraix"
+        ]
+    },
+    "wikiarticlefeeds-desc": "Produce feeds generados a partir de páginas MediaWiki",
+    "wikiarticlefeeds-tracking-category": "Páginas que generan canales RSS",
+    "wikiarticlefeeds_combined_description": "Este es un feed combinado, que contiene elementos de varias fuentes."
+}
