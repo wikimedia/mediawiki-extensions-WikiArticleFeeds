@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Eduardo.mps"
-        ]
-    },
-    "wikiarticlefeeds-desc": "Produz \"feeds\" gerados a partir de artigos do MediaWiki",
-    "wikiarticlefeeds_combined_description": "Esse é um \"feed\" combinado, contendo itens de várias fontes de \"feeds\"."
+	"@metadata": {
+		"authors": [
+			"Eduardo.mps"
+		]
+	},
+	"wikiarticlefeeds-desc": "Produz \"feeds\" gerados a partir de artigos do MediaWiki",
+	"wikiarticlefeeds_combined_description": "Esse é um \"feed\" combinado, contendo itens de várias fontes de \"feeds\"."
 }

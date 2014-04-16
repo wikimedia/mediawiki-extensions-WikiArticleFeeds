@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "EugeneZelenko",
-            "Wizardist"
-        ]
-    },
-    "wikiarticlefeeds-desc": "Стварае стужкі, утвораныя з артыкулаў MediaWiki",
-    "wikiarticlefeeds-tracking-category": "Старонкі, якія ўтвараюць RSS-стужкі",
-    "wikiarticlefeeds_combined_description": "Гэта камбінаваная стужка, якая ўтрымлівае элемэнты з некалькіх крынічных стужак."
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko",
+			"Wizardist"
+		]
+	},
+	"wikiarticlefeeds-desc": "Стварае стужкі, утвораныя з артыкулаў MediaWiki",
+	"wikiarticlefeeds-tracking-category": "Старонкі, якія ўтвараюць RSS-стужкі",
+	"wikiarticlefeeds_combined_description": "Гэта камбінаваная стужка, якая ўтрымлівае элемэнты з некалькіх крынічных стужак."
 }

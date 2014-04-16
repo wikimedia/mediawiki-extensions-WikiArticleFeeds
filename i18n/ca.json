@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Paucabot"
-        ]
-    },
-    "wikiarticlefeeds-desc": "Produeix fils RSS generats per les pàgines MediaWiki"
+	"@metadata": {
+		"authors": [
+			"Paucabot"
+		]
+	},
+	"wikiarticlefeeds-desc": "Produeix fils RSS generats per les pàgines MediaWiki"
 }

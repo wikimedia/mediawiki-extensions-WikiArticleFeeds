@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Amire80",
-            "Rotemliss",
-            "YaronSh"
-        ]
-    },
-    "wikiarticlefeeds-desc": "יצירת הזנות מדפי מדיה־ויקי",
-    "wikiarticlefeeds-tracking-category": "דפים שמייצרים הזנות RSS",
-    "wikiarticlefeeds_combined_description": "זוהי הזנה משולבת, המכילה פריטים ממספר מקורות."
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Rotemliss",
+			"YaronSh"
+		]
+	},
+	"wikiarticlefeeds-desc": "יצירת הזנות מדפי מדיה־ויקי",
+	"wikiarticlefeeds-tracking-category": "דפים שמייצרים הזנות RSS",
+	"wikiarticlefeeds_combined_description": "זוהי הזנה משולבת, המכילה פריטים ממספר מקורות."
 }

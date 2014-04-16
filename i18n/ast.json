@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Xuacu"
-        ]
-    },
-    "wikiarticlefeeds-desc": "Produz fluxos RSS xeneraos poles páxines de MediaWiki",
-    "wikiarticlefeeds-tracking-category": "Páxines que xeneren canales RSS",
-    "wikiarticlefeeds-tracking-category-desc": "La páxina xenera una canal RSS.",
-    "wikiarticlefeeds_combined_description": "Esti ye un fluxu combináu, que contién elementos de fluxos d'orixe distintu."
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"wikiarticlefeeds-desc": "Produz fluxos RSS xeneraos poles páxines de MediaWiki",
+	"wikiarticlefeeds-tracking-category": "Páxines que xeneren canales RSS",
+	"wikiarticlefeeds-tracking-category-desc": "La páxina xenera una canal RSS.",
+	"wikiarticlefeeds_combined_description": "Esti ye un fluxu combináu, que contién elementos de fluxos d'orixe distintu."
 }
