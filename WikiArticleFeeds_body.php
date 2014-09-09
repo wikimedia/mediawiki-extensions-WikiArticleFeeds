@@ -124,7 +124,7 @@ class WikiArticleFeeds{
 	* @param QuickTemplate $template Instance of MonoBookTemplate or other QuickTemplate
 	*/
 	static function wfWikiArticleFeedsToolboxLinks( $template ) {
-		global $wgServer, $wgScript, $wgStylePath, $wgWikiFeedPresent;
+		global $wgServer, $wgScript, $wgWikiFeedPresent;
 
 		# Short-circuit if there are no Feeds present
 		if ( !$wgWikiFeedPresent ) {
@@ -138,7 +138,6 @@ class WikiArticleFeeds{
 		}
 
 		$result = '<li id="feedlinks">';
-		$feedIcon = $wgServer . $wgStylePath . "/common/images/feed-icon.png";
 
 		# Test for feedBurner presence
 		$burned = false;
@@ -153,8 +152,7 @@ class WikiArticleFeeds{
 				foreach ( $feeds as $feed => $name ) {
 					$result .=
 					'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
-					'<a href="http://feeds.feedburner.com/' . urlencode( $feedBurnerName ) . '?format=xml">' .
-					'<img style="margin-right:2px;" src="' . $feedIcon . '" border=0>' .
+					'<a class="feedlink" href="http://feeds.feedburner.com/' . urlencode( $feedBurnerName ) . '?format=xml">' .
 					htmlspecialchars( $name ) . '</a>&#160;</span>';
 				}
 				$burned = true;
@@ -169,8 +167,7 @@ class WikiArticleFeeds{
 			foreach ( $feeds as $feed => $name ) {
 				$result .=
 				'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
-				'<a href="' . htmlspecialchars( $baseUrl . $feed ) . '">' .
-				'<img style="margin-right:2px;" src="' . $feedIcon . '" border=0>' .
+				'<a class="feedlink" href="' . htmlspecialchars( $baseUrl . $feed ) . '">' .
 				htmlspecialchars( $name ) . '</a>&#160;</span>';
 			}
 		}
