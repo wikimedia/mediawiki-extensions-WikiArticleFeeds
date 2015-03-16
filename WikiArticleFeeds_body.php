@@ -328,11 +328,13 @@ class WikiArticleFeeds {
 			# Determine Feed item depth (what header level defines a feed)
 			preg_match_all( '/<h(\\d)>/m', $feedContent, $matches );
 			if ( !isset( $matches[1] ) ) {
-				next;
+				continue;
 			}
 			$lvl = $matches[1][0];
 			foreach ( $matches[1] as $match ) {
-				if ( $match < $lvl ) $lvl = $match;
+				if ( $match < $lvl ) {
+					$lvl = $match;
+				}
 			}
 
 			$sectionRegExp = '#<h' . $lvl . '>\s*<span.+?id="(.*?)">\s*(.*?)\s*</span>\s*</h' . $lvl . '>#m';
