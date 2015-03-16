@@ -1,6 +1,6 @@
 <?php
 
-class WikiArticleFeeds{
+class WikiArticleFeeds {
 
 	function feedStart( $text, $params = array(), Parser $parser ) {
 		$parser->addTrackingCategory( 'wikiarticlefeeds-tracking-category' );
@@ -12,17 +12,17 @@ class WikiArticleFeeds{
 	}
 
 	function burnFeed( $text, $params = array() ) {
-		return ( $params['name'] ? '<!-- BURN_FEED ' . base64_encode( serialize( $params['name'] ) ) . ' -->':'' );
+		return ( $params['name'] ? '<!-- BURN_FEED ' . base64_encode( serialize( $params['name'] ) ) . ' -->' : '' );
 	}
 
 	function itemTagsTag( $text, $params = array() ) {
-		return ( $text ? '<!-- ITEM_TAGS ' . base64_encode( serialize( $text ) ) . ' -->':'' );
+		return ( $text ? '<!-- ITEM_TAGS ' . base64_encode( serialize( $text ) ) . ' -->' : '' );
 	}
 
 	function itemTagsFunction( Parser $parser ) {
 		$tags = func_get_args();
 		array_shift( $tags );
-		return ( !empty( $tags ) ? '<pre>@ITEMTAGS@' . base64_encode( serialize( implode( ',', $tags ) ) ) . '@ITEMTAGS@</pre>':'' );
+		return ( !empty( $tags ) ? '<pre>@ITEMTAGS@' . base64_encode( serialize( implode( ',', $tags ) ) ) . '@ITEMTAGS@</pre>' : '' );
 	}
 
 	function itemTagsPlaceholderCorrections( Parser $parser, &$text ) {
@@ -48,15 +48,17 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Adds the Wiki feed link headers.
-	*
-	* Usage: $wgHooks['OutputPageBeforeHTML'][] = 'wfAddWikiFeedHeaders';
-	* @param $out Handle to an OutputPage object (presumably $wgOut).
-	* @param $text Article/Output text.
-	*/
+	 * Adds the Wiki feed link headers.
+	 *
+	 * Usage: $wgHooks['OutputPageBeforeHTML'][] = 'wfAddWikiFeedHeaders';
+	 * @param OutputPage $out Handle to an OutputPage object (presumably $wgOut).
+	 * @param string $text Article/Output text.
+	 */
 	static function wfAddWikiFeedHeaders( $out, $text ) {
 		# Short-circuit if this article contains no feeds
-		if ( !preg_match( '/<!-- FEED_START -->/m', $text ) ) return true;
+		if ( !preg_match( '/<!-- FEED_START -->/m', $text ) ) {
+			return true;
+		}
 
 		$rssArr = array(
 			'rel' => 'alternate',
@@ -78,9 +80,8 @@ class WikiArticleFeeds{
 			}
 		}
 
-		# If its not being fed by feedBurner, do it ourselves!
+		# If it's not being fed by feedBurner, do it ourselves!
 		if ( !array_key_exists( 'href', $rssArr ) || !$rssArr['href'] ) {
-
 			global $wgServer, $wgScript;
 
 			$baseUrl = $wgServer . $wgScript . '?title=' . $out->getTitle()->getDBkey() . '&action=feed&feed=';
@@ -99,17 +100,17 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Add additional attributes to links to User- or User_talk pages 
-	* It does this for all links on all pages 
-	* (even when we need this only for pages which generate a feed)
-	*
-	* Attributes are used later in wfGenerateWikiFeed to determine signatures with timestamps
-	* for attributing author and timestamp values to the feed item from the signatures.
-	*/
-	# https://www.mediawiki.org/wiki/Manual:Hooks/LinkEnd
+	 * Add additional attributes to links to User- or User_talk pages
+	 * It does this for all links on all pages
+	 * (even when we need this only for pages which generate a feed)
+	 *
+	 * Attributes are used later in wfGenerateWikiFeed to determine signatures with timestamps
+	 * for attributing author and timestamp values to the feed item from the signatures.
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LinkEnd
+	 */
 	static function wfWikiArticleFeedsAddSignatureMarker( $skin, Title $target, array $options, $text, array &$attribs, $ret ) {
-
-		if ( $target->getNamespace() == NS_USER) {
+		if ( $target->getNamespace() == NS_USER ) {
 			$attribs['userpage-link'] = 'true';
 		} elseif ( $target->getNamespace() == NS_USER_TALK ) {
 			$attribs['usertalkpage-link'] = 'true';
@@ -118,11 +119,11 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Adds the Wiki feed links to the bottom of the toolbox in Monobook or like-minded skins.
-	*
-	* Usage: $wgHooks['SkinTemplateToolboxEnd'][] = 'wfWikiArticleFeedsToolboxLinks';
-	* @param QuickTemplate $template Instance of MonoBookTemplate or other QuickTemplate
-	*/
+	 * Adds the Wiki feed links to the bottom of the toolbox in Monobook or like-minded skins.
+	 *
+	 * Usage: $wgHooks['SkinTemplateToolboxEnd'][] = 'wfWikiArticleFeedsToolboxLinks';
+	 * @param QuickTemplate $template Instance of MonoBookTemplate or other QuickTemplate
+	 */
 	static function wfWikiArticleFeedsToolboxLinks( $template ) {
 		global $wgServer, $wgScript, $wgWikiFeedPresent;
 
@@ -148,7 +149,10 @@ class WikiArticleFeeds{
 		if ( preg_match( '/<!-- BURN_FEED ([0-9a-zA-Z\\+\\/]+=*) -->/m', $text, $matches ) ) {
 			$feedBurnerName = @unserialize( @base64_decode( $matches[1] ) );
 			if ( $feedBurnerName ) {
-				$feeds = array( 'rss' => 'RSS', 'atom' => 'Atom' );
+				$feeds = array(
+					'rss' => 'RSS',
+					'atom' => 'Atom'
+				);
 				foreach ( $feeds as $feed => $name ) {
 					$result .=
 					'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
@@ -163,7 +167,10 @@ class WikiArticleFeeds{
 		if ( !$burned ) {
 			$dbKey = $title->getPrefixedDBkey();
 			$baseUrl = $wgServer . $wgScript . '?title=' . $dbKey . '&action=feed&feed=';
-			$feeds = array( 'rss' => 'RSS', 'atom' => 'Atom' );
+			$feeds = array(
+				'rss' => 'RSS',
+				'atom' => 'Atom'
+			);
 			foreach ( $feeds as $feed => $name ) {
 				$result .=
 				'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
@@ -179,22 +186,21 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Injects handling of the 'feed' action.
-	*
-	* Usage: $wgHooks['UnknownAction'][] = 'wfWikiArticleFeedsAction';
-	* @param $action Handle to an action string (presumably same as global $action).
-	* @param $article Article to be converted to rss or atom feed
-	*/
+	 * Injects handling of the 'feed' action.
+	 *
+	 * Usage: $wgHooks['UnknownAction'][] = 'wfWikiArticleFeedsAction';
+	 * @param string $action Handle to an action string (presumably same as global $action).
+	 * @param Article|WikiPage $article Article to be converted to RSS or Atom feed
+	 */
 	static function wfWikiArticleFeedsAction( $action, $article ) {
-
 		# If some other action is in the works, cut and run!
 		if ( $action != 'feed' ) {
 			return true;
 		}
 
-		global	$wgOut, $wgRequest, $wgFeedClasses, $wgFeedCacheTimeout, $wgDBname,
+		global $wgOut, $wgRequest, $wgFeedClasses, $wgFeedCacheTimeout, $wgDBname,
 			$messageMemc, $wgSitename;
-	
+
 		# Get query parameters
 		$feedFormat = $wgRequest->getVal( 'feed', 'atom' );
 		$filterTags = $wgRequest->getVal( 'tags', null );
@@ -207,16 +213,16 @@ class WikiArticleFeeds{
 		}
 
 		if ( !isset( $wgFeedClasses[$feedFormat] ) ) {
-			wfHttpError( 500, "Internal Server Error", "Unsupported feed type." );
+			wfHttpError( 500, 'Internal Server Error', 'Unsupported feed type.' );
 			return false;
 		}
 
 		# Setup cache-checking vars
 		$title = $article->getTitle();
 		$titleDBkey = $title->getPrefixedDBkey();
-		$tags = ( is_array( $filterTags ) ? ':' . implode( ',', $filterTags ):'' );
+		$tags = ( is_array( $filterTags ) ? ':' . implode( ',', $filterTags ) : '' );
 		$key = "{$wgDBname}:wikiarticlefeedsextension:{$titleDBkey}:{$feedFormat}{$tags}";
-		$timekey = $key . ":timestamp";
+		$timekey = $key . ':timestamp';
 		$cachedFeed = false;
 		$feedLastmod = $messageMemc->get( $timekey );
 
@@ -226,15 +232,17 @@ class WikiArticleFeeds{
 		foreach ( $templates as $tTitle ) {
 			$tArticle = new Article( $tTitle );
 			$tmod = $tArticle->getTimestamp();
-			$lastmod = ( $lastmod > $tmod ? $lastmod:$tmod );
+			$lastmod = ( $lastmod > $tmod ? $lastmod : $tmod );
 		}
 
 		# Check for availability of existing cached **
 		if ( ( $wgFeedCacheTimeout > 0 ) && $feedLastmod ) {
 			$feedLastmodTS = wfTimestamp( TS_UNIX, $feedLastmod );
-			if ( time() - $feedLastmodTS < $wgFeedCacheTimeout
-				|| $feedLastmodTS > wfTimestamp( TS_UNIX, $lastmod ) 
-				) {
+			if (
+				time() - $feedLastmodTS < $wgFeedCacheTimeout ||
+				$feedLastmodTS > wfTimestamp( TS_UNIX, $lastmod )
+			)
+			{
 				wfDebug( "WikiArticleFeedsExtension: Loading feed from cache ($key; $feedLastmod; $lastmod)...\n" );
 				$cachedFeed = $messageMemc->get( $key );
 			} else {
@@ -267,12 +275,12 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Purges all associated feeds when an Article is purged.
-	*
-	* Usage: $wgHooks['ArticlePurge'][] = 'wfPurgeFeedsOnArticlePurge';
-	* @param Article $article The Article which is being purged.
-	* @return boolean Always true to permit additional hook processing.
-	*/
+	 * Purges all associated feeds when an Article is purged.
+	 *
+	 * Usage: $wgHooks['ArticlePurge'][] = 'wfPurgeFeedsOnArticlePurge';
+	 * @param Article $article The Article which is being purged.
+	 * @return bool Always true to permit additional hook processing.
+	 */
 	static function wfPurgeFeedsOnArticlePurge( $article ) {
 		global $messageMemc, $wgDBname;
 		$titleDBKey = $article->mTitle->getPrefixedDBkey();
@@ -285,12 +293,12 @@ class WikiArticleFeeds{
 	}
 
 	/**
-	* Converts an MediaWiki article into a feed, echoing generated content directly.
-	*
-	* @param Article $article Article to be converted to RSS or Atom feed.
-	* @param String $feedFormat A format type - must be either 'rss' or 'atom'
-	* @param Array $filterTags Tags to use in filtering out items.
-	*/
+	 * Converts an MediaWiki article into a feed, echoing generated content directly.
+	 *
+	 * @param Article $article Article to be converted to RSS or Atom feed.
+	 * @param string $feedFormat A format type - must be either 'rss' or 'atom'
+	 * @param array $filterTags Tags to use in filtering out items.
+	 */
 	static function wfGenerateWikiFeed( $article, $feedFormat = 'atom', $filterTags = null ) {
 		global $wgOut, $wgServer, $wgFeedClasses, $wgVersion, $wgSitename;
 
@@ -302,7 +310,7 @@ class WikiArticleFeeds{
 			}
 		}
 		$title = $article->getTitle();
-		$feedUrl = $title->getFullUrl();
+		$feedUrl = $title->getFullURL();
 
 		# Parse page into feed items.
 		$content = $wgOut->parse( $article->getContent() . "\n__NOEDITSECTION__ __NOTOC__" );
@@ -317,7 +325,6 @@ class WikiArticleFeeds{
 		$items = array();
 		$feedDescription = '';
 		foreach ( $feedContentSections as $feedKey => $feedContent ) {
-
 			# Determine Feed item depth (what header level defines a feed)
 			preg_match_all( '/<h(\\d)>/m', $feedContent, $matches );
 			if ( !isset( $matches[1] ) ) {
@@ -352,7 +359,6 @@ class WikiArticleFeeds{
 
 			# Loop over parsed segments and add all items to item array
 			foreach ( $segments as $key => $seg ) {
-
 				# Filter by tag (if any are present)
 				$skip = false;
 				$tags = null;
@@ -377,7 +383,9 @@ class WikiArticleFeeds{
 						$skip = true;
 					}
 				}
-				if ( $skip ) continue;
+				if ( $skip ) {
+					continue;
+				}
 
 				# Try hard to determine the item author and date
 				# Look for a regular signatures of the layout
@@ -391,20 +399,18 @@ class WikiArticleFeeds{
 				$signatureRegExp1 = '#<.*userpage-link.*>(.*?)</a>.*<.*usertalkpage-link.*>.*</a>\) (.*\([A-Z]+\))#im';
 				$signatureRegExp2 = '#<.*userpage-link.*>(.*?)</a> (.*\([A-Z]+\))#im';
 				$signatureRegExp3 = '#<.*usertalkpage-link.*>(.*?)</a> (.*\([A-Z]+\))#im';
-			
+
 				$isAttributable = ( preg_match( $signatureRegExp1, $seg, $matches )
 					|| preg_match( $signatureRegExp2, $seg, $matches )
 					|| preg_match( $signatureRegExp3, $seg, $matches ) );
 
 				if ( $isAttributable ) {
-
 					list( $author, $timestring ) = array_slice( $matches, 1 );
-			
+
 					$tempTimezone = date_default_timezone_get();
 					date_default_timezone_set( 'UTC' );
-					$date = date( "YmdHis" , strtotime( $timestring ) );
+					$date = date( 'YmdHis', strtotime( $timestring ) );
 					date_default_timezone_set( $tempTimezone );
-
 				}
 
 				# Set default 'article section' feed-link
@@ -413,7 +419,7 @@ class WikiArticleFeeds{
 				# Look for an alternative to the default link (unless default 'section linking' has been forced)
 				global $wgForceArticleFeedSectionLinks;
 				if ( !$wgForceArticleFeedSectionLinks ) {
-					$strippedSeg = preg_replace($signatureRegExp, '', $seg );
+					$strippedSeg = preg_replace( $signatureRegExp, '', $seg );
 					preg_match(
 						'#<a [^>]*href=([\'"])(.*?)\\1[^>]*>(.*?)</a>#m',
 						$strippedSeg,
@@ -435,8 +441,8 @@ class WikiArticleFeeds{
 			}
 		}
 
-		# Programmatically determine the feed title and id.
-		$feedTitle = $title->getPrefixedText() . " - Feed";
+		# Programmatically determine the feed title and ID.
+		$feedTitle = $title->getPrefixedText() . ' - Feed';
 		$feedId = $title->getFullUrl();
 
 		# Create feed
