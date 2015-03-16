@@ -4,7 +4,7 @@
  * @author Jim R. Wilson, Thomas Gries
  * @maintainer Thomas Gries
  *
- * @version 0.71
+ * @version 0.73
  * @copyright Copyright (C) 2007 Jim R. Wilson
  * @copyright Copyright (C) 2012 Thomas Gries
  * @license The MIT License - http://www.opensource.org/licenses/mit-license.php
@@ -56,6 +56,8 @@
  *
  * Versions
  *
+ * 0.73    Changed the LinkEnd hook handler to generate valid HTML by prefixing
+ *         the userpage-link and usertalkpage-link attributes with "data-"
  * 0.71    removed $wgWikiArticleFeedsTrackingCategory parameter for tracking category
  * 0.703   adds the feed icon to the bottom of the toolbox in Monobook or like-minded skins.
  * 0.701   version string constant renamed to make it wiki-unique
@@ -125,7 +127,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
 }
 
-define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.72.0 20140401' );
+define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.73.0 20150316' );
 
 # Bring in supporting classes
 require_once( "$IP/includes/Feed.php" );
@@ -141,16 +143,15 @@ $wgExtensionCredits['specialpage'][] = array(
 	'version' => EXTENSION_WIKIARTICLEFEEDS_VERSION,
 );
 
-$dir = dirname( __FILE__ ) . '/';
 $wgMessagesDirs['WikiArticleFeeds'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['WikiArticleFeeds'] = $dir . 'WikiArticleFeeds.i18n.php';
-$wgExtensionMessagesFiles['WikiArticleFeedsMagic'] = $dir . 'WikiArticleFeeds.i18n.magic.php';
+$wgExtensionMessagesFiles['WikiArticleFeeds'] = __DIR__ . '/WikiArticleFeeds.i18n.php';
+$wgExtensionMessagesFiles['WikiArticleFeedsMagic'] = __DIR__ . '/WikiArticleFeeds.i18n.magic.php';
 
 # Tracking category listed on Special:TrackingCategories
 $wgTrackingCategories[] = 'wikiarticlefeeds-tracking-category';
 
 # Create global instance
-$wgAutoloadClasses['WikiArticleFeeds'] = $dir . 'WikiArticleFeeds_body.php';
+$wgAutoloadClasses['WikiArticleFeeds'] = __DIR__ . '/WikiArticleFeeds_body.php';
 
 # Attach Hooks
 $wgHooks['ParserFirstCallInit'][] = 'WikiArticleFeeds::wfWikiArticleFeedsSetup';
