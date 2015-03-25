@@ -111,9 +111,9 @@ class WikiArticleFeeds {
 	 */
 	static function wfWikiArticleFeedsAddSignatureMarker( $skin, Title $target, array $options, $text, array &$attribs, $ret ) {
 		if ( $target->getNamespace() == NS_USER ) {
-			$attribs['userpage-link'] = 'true';
+			$attribs['data-userpage-link'] = 'true';
 		} elseif ( $target->getNamespace() == NS_USER_TALK ) {
-			$attribs['usertalkpage-link'] = 'true';
+			$attribs['data-usertalkpage-link'] = 'true';
 		}
 		return true;
 	}
@@ -391,16 +391,16 @@ class WikiArticleFeeds {
 
 				# Try hard to determine the item author and date
 				# Look for a regular signatures of the layout
-				# userpage-link [optional user_talk page link] date (with a delimiting timezone code in parentheses)
+				# data-userpage-link [optional user_talk page link] date (with a delimiting timezone code in parentheses)
 
 				$author = null;
 				$date = null;
 
 				$signatureRegExp = '#<a href=".+?User:.+?" title="User:.+?">(.*?)</a> (\d\d):(\d\d), (\d+) ([a-z]+) (\d{4}) (\([A-Z]+\))#im';
 
-				$signatureRegExp1 = '#<.*userpage-link.*>(.*?)</a>.*<.*usertalkpage-link.*>.*</a>\) (.*\([A-Z]+\))#im';
-				$signatureRegExp2 = '#<.*userpage-link.*>(.*?)</a> (.*\([A-Z]+\))#im';
-				$signatureRegExp3 = '#<.*usertalkpage-link.*>(.*?)</a> (.*\([A-Z]+\))#im';
+				$signatureRegExp1 = '#<.*data-userpage-link.*>(.*?)</a>.*<.*data-usertalkpage-link.*>.*</a>\) (.*\([A-Z]+\))#im';
+				$signatureRegExp2 = '#<.*data-userpage-link.*>(.*?)</a> (.*\([A-Z]+\))#im';
+				$signatureRegExp3 = '#<.*data-usertalkpage-link.*>(.*?)</a> (.*\([A-Z]+\))#im';
 
 				$isAttributable = ( preg_match( $signatureRegExp1, $seg, $matches )
 					|| preg_match( $signatureRegExp2, $seg, $matches )
