@@ -228,7 +228,7 @@ class WikiArticleFeeds {
 
 		# Dermine last modification time for either the article itself or an included template
 		$lastmod = $article->getTimestamp();
-		$templates = $article->getUsedTemplates();
+		$templates = $title->getTemplateLinksFrom();
 		foreach ( $templates as $tTitle ) {
 			$tArticle = new Article( $tTitle );
 			$tmod = $tArticle->getTimestamp();
