@@ -355,7 +355,8 @@ class WikiArticleFeeds {
 				if ( !$feedDescription ) {
 					$feedDescription = $segDesc;
 				} else {
-					$feedDescription = wfMsg( 'wikiarticlefeeds_combined_description' );
+					$feedDescription =
+						$article->getContext()->msg( 'wikiarticlefeeds_combined_description' )->text();
 				}
 			}
 
