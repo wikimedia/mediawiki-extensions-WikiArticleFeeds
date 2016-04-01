@@ -304,7 +304,8 @@ class WikiArticleFeeds {
 
 		# Setup, handle redirects
 		if ( $article->isRedirect() ) {
-			$rtitle = Title::newFromRedirect( $article->getContent() );
+			$rtitle = ContentHandler::makeContent( $article->getContent(), null, CONTENT_MODEL_WIKITEXT )
+				->getRedirectTarget();
 			if ( $rtitle ) {
 				$article = new Article( $rtitle );
 			}
