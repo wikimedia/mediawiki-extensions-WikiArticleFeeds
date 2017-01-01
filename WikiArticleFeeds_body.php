@@ -313,7 +313,8 @@ class WikiArticleFeeds {
 		$feedUrl = $title->getFullURL();
 
 		# Parse page into feed items.
-		$content = $wgOut->parse( $article->getContent() . "\n__NOEDITSECTION__ __NOTOC__" );
+		$content = $wgOut->parse( ContentHandler::getContentText( $article->getPage()->getContent() ) .
+			"\n__NOEDITSECTION__ __NOTOC__" );
 		preg_match_all(
 			'/<!--\\s*FEED_START\\s*-->(.*?)<!--\\s*FEED_END\\s*-->/s',
 			$content,
