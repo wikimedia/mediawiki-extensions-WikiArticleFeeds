@@ -6,5 +6,6 @@
 	},
 	"wikiarticlefeeds-desc": "Produce syndicationes generate ab paginas MediaWiki",
 	"wikiarticlefeeds-tracking-category": "Paginas que genera syndicationes RSS",
-	"wikiarticlefeeds_combined_description": "Isto es un syndication combinate, continente entratas de plure origines de syndicationes."
+	"wikiarticlefeeds-tracking-category-desc": "Le pagina genera un syndication RSS.",
+	"wikiarticlefeeds_combined_description": "Isto es un syndication combinate, continente entratas de plure fontes."
 }
