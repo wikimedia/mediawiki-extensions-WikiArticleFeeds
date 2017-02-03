@@ -4,27 +4,20 @@
  * @author Jim R. Wilson, Thomas Gries
  * @maintainer Thomas Gries
  *
- * @version 0.73
- * @copyright Copyright (C) 2007 Jim R. Wilson
- * @copyright Copyright (C) 2012 Thomas Gries
+ * @version 0.74
+ * @copyright Copyright © 2007 Jim R. Wilson
+ * @copyright Copyright © 2012 Thomas Gries
  * @license The MIT License - http://www.opensource.org/licenses/mit-license.php
  *
  * Description
  *
- * This is a MediaWiki (http://www.mediawiki.org/) extension which adds support
+ * This is a MediaWiki (https://www.mediawiki.org/) extension which adds support
  * for publishing RSS or Atom feeds generated from standard wiki articles.
  *
  * Requirements
  *
- * MediaWiki 1.19 or higher
+ * MediaWiki 1.25 or higher
  * PHP 5.x or higher
- *
- * Installation
- *
- * 1. Drop this script (WikiArticleFeeds.php) in $IP/extensions
- *    Note: $IP is your MediaWiki install directory.
- * 2. Enable the extension by adding this line to your LocalSettings.php:
- *    require_once('extensions/WikiArticleFeeds.php');
  *
  * Usage
  *
@@ -41,14 +34,14 @@
  * Creating a Feed
  *
  * To delimit a section of an article as containing feed items, use the <startFeed />
- * and <endFeed /> tags respectively.  These tags are merely flags, and any attributes
+ * and <endFeed /> tags respectively. These tags are merely flags, and any attributes
  * specified, or content inside the tags themselves will be ignored.
  *
  * Tagging a Feed item
  *
  * To tag a feed item, insert either the <itemTags> tag, or the a call to the {{#itemTags}} parser
  * function somewhere between the opening header of the item (== Item Title ==) and the header of
- * the next item.  For example, to mark an item about dogs and cats, you could do any of the following:
+ * the next item. For example, to mark an item about dogs and cats, you could do any of the following:
  *
  * <itemTags>dogs, cats</itemTags>
  * {{#itemTags:dogs, cats}}
@@ -56,6 +49,7 @@
  *
  * Versions
  *
+ * 0.74    Slight code cleanup
  * 0.73    Changed the LinkEnd hook handler to generate valid HTML by prefixing
  *         the userpage-link and usertalkpage-link attributes with "data-"
  * 0.71    removed $wgWikiArticleFeedsTrackingCategory parameter for tracking category
@@ -99,7 +93,7 @@
  *         Improved return values from hooking functions (plays better with other extensions).
  * 0.1     Initial release.
  *
- * Copyright (c) 2007 Jim R. Wilson
+ * Copyright © 2007 Jim R. Wilson
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -122,44 +116,33 @@
  *
  */
 
-# Confirm MW environment
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( "This is not a valid entry point.\n" );
-}
-
-define( 'EXTENSION_WIKIARTICLEFEEDS_VERSION', '0.73.0 20150316' );
-
-# Bring in supporting classes
-require_once( "$IP/includes/Feed.php" );
-require_once( "$IP/includes/Sanitizer.php" );
+# Create global instance
+$wgAutoloadClasses['WikiArticleFeeds'] = __DIR__ . '/WikiArticleFeeds_body.php';
 
 # Credits
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'WikiArticleFeeds',
+	'license-name' => 'MIT',
 	'author' => array( 'Jim Wilson', 'Thomas Gries' ),
 	'url' => '//www.mediawiki.org/wiki/Extension:WikiArticleFeeds',
 	'descriptionmsg' => 'wikiarticlefeeds-desc',
-	'version' => EXTENSION_WIKIARTICLEFEEDS_VERSION,
+	'version' => WikiArticleFeeds::VERSION,
 );
 
 $wgMessagesDirs['WikiArticleFeeds'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['WikiArticleFeeds'] = __DIR__ . '/WikiArticleFeeds.i18n.php';
 $wgExtensionMessagesFiles['WikiArticleFeedsMagic'] = __DIR__ . '/WikiArticleFeeds.i18n.magic.php';
 
 # Tracking category listed on Special:TrackingCategories
 $wgTrackingCategories[] = 'wikiarticlefeeds-tracking-category';
 
-# Create global instance
-$wgAutoloadClasses['WikiArticleFeeds'] = __DIR__ . '/WikiArticleFeeds_body.php';
-
 # Attach Hooks
-$wgHooks['ParserFirstCallInit'][] = 'WikiArticleFeeds::wfWikiArticleFeedsSetup';
-$wgHooks['SkinTemplateToolboxEnd'][] = 'WikiArticleFeeds::wfWikiArticleFeedsToolboxLinks';
-$wgHooks['OutputPageBeforeHTML'][] = 'WikiArticleFeeds::wfAddWikiFeedHeaders';
-$wgHooks['LinkEnd'][] = 'WikiArticleFeeds::wfWikiArticleFeedsAddSignatureMarker';
-$wgHooks['UnknownAction'][] = 'WikiArticleFeeds::wfWikiArticleFeedsAction';
-$wgHooks['ArticlePurge'][] = 'WikiArticleFeeds::wfPurgeFeedsOnArticlePurge';
+$wgHooks['ParserFirstCallInit'][] = 'WikiArticleFeeds::setup';
+$wgHooks['SkinTemplateToolboxEnd'][] = 'WikiArticleFeeds::addToolboxLinks';
+$wgHooks['OutputPageBeforeHTML'][] = 'WikiArticleFeeds::addWikiFeedHeaders';
+$wgHooks['LinkEnd'][] = 'WikiArticleFeeds::addSignatureMarker';
+$wgHooks['UnknownAction'][] = 'WikiArticleFeeds::onUnknownAction';
+$wgHooks['ArticlePurge'][] = 'WikiArticleFeeds::onArticlePurge';
 
 $wgWikiArticleFeeds = new WikiArticleFeeds();
 $wgHooks['ParserBeforeTidy'][] = array( $wgWikiArticleFeeds, 'WikiArticleFeeds::itemTagsPlaceholderCorrections' );

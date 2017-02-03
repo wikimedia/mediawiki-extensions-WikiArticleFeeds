@@ -1,6 +1,7 @@
 <?php
 
 class WikiArticleFeeds {
+	const VERSION = '0.74.0 20170203';
 
 	function feedStart( $text, $params = array(), Parser $parser ) {
 		$parser->addTrackingCategory( 'wikiarticlefeeds-tracking-category' );
@@ -35,7 +36,7 @@ class WikiArticleFeeds {
 	}
 
 	# Sets up the WikiArticleFeeds Parser hooks
-	static function wfWikiArticleFeedsSetup( Parser $parser ) {
+	static function setup( Parser $parser ) {
 		global $wgWikiArticleFeeds;
 
 		$parser->setHook( 'startFeed', array( $wgWikiArticleFeeds, 'feedStart' ) );
@@ -50,11 +51,10 @@ class WikiArticleFeeds {
 	/**
 	 * Adds the Wiki feed link headers.
 	 *
-	 * Usage: $wgHooks['OutputPageBeforeHTML'][] = 'wfAddWikiFeedHeaders';
 	 * @param OutputPage $out Handle to an OutputPage object (presumably $wgOut).
 	 * @param string $text Article/Output text.
 	 */
-	static function wfAddWikiFeedHeaders( $out, $text ) {
+	public static function addWikiFeedHeaders( $out, $text ) {
 		# Short-circuit if this article contains no feeds
 		if ( !preg_match( '/<!-- FEED_START -->/m', $text ) ) {
 			return true;
@@ -104,12 +104,12 @@ class WikiArticleFeeds {
 	 * It does this for all links on all pages
 	 * (even when we need this only for pages which generate a feed)
 	 *
-	 * Attributes are used later in wfGenerateWikiFeed to determine signatures with timestamps
+	 * Attributes are used later in self::generateWikiFeed() to determine signatures with timestamps
 	 * for attributing author and timestamp values to the feed item from the signatures.
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/LinkEnd
 	 */
-	static function wfWikiArticleFeedsAddSignatureMarker( $skin, Title $target, array $options, $text, array &$attribs, $ret ) {
+	public static function addSignatureMarker( $skin, Title $target, array $options, $text, array &$attribs, $ret ) {
 		if ( $target->getNamespace() == NS_USER ) {
 			$attribs['data-userpage-link'] = 'true';
 		} elseif ( $target->getNamespace() == NS_USER_TALK ) {
@@ -119,12 +119,11 @@ class WikiArticleFeeds {
 	}
 
 	/**
-	 * Adds the Wiki feed links to the bottom of the toolbox in Monobook or like-minded skins.
+	 * Adds the Wiki feed links to the bottom of the toolbox in MonoBook or like-minded skins.
 	 *
-	 * Usage: $wgHooks['SkinTemplateToolboxEnd'][] = 'wfWikiArticleFeedsToolboxLinks';
-	 * @param QuickTemplate $template Instance of MonoBookTemplate or other QuickTemplate
+	 * @param BaseTemplate $template Instance of MonoBookTemplate or other BaseTemplate
 	 */
-	static function wfWikiArticleFeedsToolboxLinks( $template ) {
+	public static function addToolboxLinks( $template ) {
 		global $wgServer, $wgScript, $wgWikiFeedPresent;
 
 		# Short-circuit if there are no Feeds present
@@ -179,7 +178,7 @@ class WikiArticleFeeds {
 			}
 		}
 
-		echo ( $result . '</li>' );
+		echo $result . '</li>';
 
 		# True to indicate that other action handlers should continue to process this page
 		return true;
@@ -188,18 +187,17 @@ class WikiArticleFeeds {
 	/**
 	 * Injects handling of the 'feed' action.
 	 *
-	 * Usage: $wgHooks['UnknownAction'][] = 'wfWikiArticleFeedsAction';
 	 * @param string $action Handle to an action string (presumably same as global $action).
 	 * @param Article|WikiPage $article Article to be converted to RSS or Atom feed
 	 */
-	static function wfWikiArticleFeedsAction( $action, $article ) {
+	public static function onUnknownAction( $action, $article ) {
 		# If some other action is in the works, cut and run!
 		if ( $action != 'feed' ) {
 			return true;
 		}
 
-		global $wgOut, $wgRequest, $wgFeedClasses, $wgFeedCacheTimeout, $wgDBname,
-			$messageMemc, $wgSitename;
+		global $wgRequest, $wgFeedClasses, $wgFeedCacheTimeout, $wgDBname,
+			$messageMemc;
 
 		# Get query parameters
 		$feedFormat = $wgRequest->getVal( 'feed', 'atom' );
@@ -243,25 +241,25 @@ class WikiArticleFeeds {
 				$feedLastmodTS > wfTimestamp( TS_UNIX, $lastmod )
 			)
 			{
-				wfDebug( "WikiArticleFeedsExtension: Loading feed from cache ($key; $feedLastmod; $lastmod)...\n" );
+				wfDebugLog( 'WikiArticleFeeds', "Loading feed from cache ($key; $feedLastmod; $lastmod)...\n" );
 				$cachedFeed = $messageMemc->get( $key );
 			} else {
-				wfDebug( "WikiArticleFeedsExtension: Cached feed timestamp check failed ($feedLastmod; $lastmod)\n" );
+				wfDebugLog( 'WikiArticleFeeds', "Cached feed timestamp check failed ($feedLastmod; $lastmod)\n" );
 			}
 		}
 
 		# Display cachedFeed, or generate one from scratch
 		global $wgWikiArticleFeedsSkipCache;
 		if ( !$wgWikiArticleFeedsSkipCache && is_string( $cachedFeed ) ) {
-			wfDebug( "WikiArticleFeedsExtension: Outputting cached feed\n" );
-			$feed = new $wgFeedClasses[$feedFormat]( $title->getText(), '', $title->getFullURL(). " - Feed" );
+			wfDebugLog( 'WikiArticleFeeds', 'Outputting cached feed' );
+			$feed = new $wgFeedClasses[$feedFormat]( $title->getText(), '', $title->getFullURL() . ' - Feed' );
 			ob_start();
 			$feed->httpHeaders();
 			echo $cachedFeed;
 		} else {
-			wfDebug( "WikiArticleFeedsExtension: Rendering new feed and caching it\n" );
+			wfDebugLog( 'WikiArticleFeeds', 'Rendering new feed and caching it' );
 			ob_start();
-			WikiArticleFeeds::wfGenerateWikiFeed( $article, $feedFormat, $filterTags );
+			WikiArticleFeeds::generateWikiFeed( $article, $feedFormat, $filterTags );
 			$cachedFeed = ob_get_contents();
 			ob_end_flush();
 
@@ -277,11 +275,10 @@ class WikiArticleFeeds {
 	/**
 	 * Purges all associated feeds when an Article is purged.
 	 *
-	 * Usage: $wgHooks['ArticlePurge'][] = 'wfPurgeFeedsOnArticlePurge';
 	 * @param Article $article The Article which is being purged.
 	 * @return bool Always true to permit additional hook processing.
 	 */
-	static function wfPurgeFeedsOnArticlePurge( $article ) {
+	public static function onArticlePurge( $article ) {
 		global $messageMemc, $wgDBname;
 		$titleDBKey = $article->mTitle->getPrefixedDBkey();
 		$keyPrefix = "{$wgDBname}:wikiarticlefeedsextension:{$titleDBKey}";
@@ -299,8 +296,8 @@ class WikiArticleFeeds {
 	 * @param string $feedFormat A format type - must be either 'rss' or 'atom'
 	 * @param array $filterTags Tags to use in filtering out items.
 	 */
-	static function wfGenerateWikiFeed( $article, $feedFormat = 'atom', $filterTags = null ) {
-		global $wgOut, $wgServer, $wgFeedClasses, $wgVersion, $wgSitename;
+	public static function generateWikiFeed( $article, $feedFormat = 'atom', $filterTags = null ) {
+		global $wgOut, $wgServer, $wgFeedClasses, $wgVersion;
 
 		# Setup, handle redirects
 		if ( $article->isRedirect() ) {
@@ -447,14 +444,14 @@ class WikiArticleFeeds {
 
 		# Programmatically determine the feed title and ID.
 		$feedTitle = $title->getPrefixedText() . ' - Feed';
-		$feedId = $title->getFullUrl();
+		$feedId = $title->getFullURL();
 
 		# Create feed
 		$feed = new $wgFeedClasses[$feedFormat]( $feedTitle, $feedDescription, $feedId );
 
 		# Push feed header
 		$tempWgVersion = $wgVersion;
-		$wgVersion .= ' via WikiArticleFeeds ' . EXTENSION_WIKIARTICLEFEEDS_VERSION;
+		$wgVersion .= ' via WikiArticleFeeds ' . WikiArticleFeeds::VERSION;
 		$feed->outHeader();
 		$wgVersion = $tempWgVersion;
 
