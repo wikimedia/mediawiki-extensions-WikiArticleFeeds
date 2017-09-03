@@ -3,11 +3,12 @@
 		"authors": [
 			"Armando-Martin",
 			"Locos epraix",
-			"Dgstranz"
+			"Dgstranz",
+			"Fitoschido"
 		]
 	},
 	"wikiarticlefeeds-desc": "Produce feeds generados a partir de páginas MediaWiki",
 	"wikiarticlefeeds-tracking-category": "Páginas que generan canales RSS",
 	"wikiarticlefeeds-tracking-category-desc": "La página genera un canal RSS.",
-	"wikiarticlefeeds_combined_description": "Este es un feed combinado, que contiene elementos de varias fuentes."
+	"wikiarticlefeeds_combined_description": "Este suministro combinado contiene elementos provenientes de varias fuentes."
 }
