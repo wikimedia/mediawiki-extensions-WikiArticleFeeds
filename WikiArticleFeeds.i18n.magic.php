@@ -69,3 +69,8 @@ $magicWords['sr-ec'] = array(
 $magicWords['sr-el'] = array(
 	'itemtags' => array( 0, 'oznakestavke', 'oznake_stavke' ),
 );
+
+/** Urdu (اردو) */
+$magicWords['ur'] = array(
+	'itemtags' => array( 0, 'آئٹم_ٹیگ', 'itemtags' ),
+);
