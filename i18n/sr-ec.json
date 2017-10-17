@@ -3,10 +3,12 @@
 		"authors": [
 			"Rancher",
 			"Михајло Анђелковић",
-			"Milicevic01"
+			"Milicevic01",
+			"Obsuser"
 		]
 	},
 	"wikiarticlefeeds-desc": "Израђује фидове произведене код МедијаВики страна",
+	"wikiarticlefeeds-tracking-category": "Странице које генеришу RSS фидове",
 	"wikiarticlefeeds-tracking-category-desc": "Страница генерише RSS довод.",
 	"wikiarticlefeeds_combined_description": "Ово је комбиновани довод који садржи ставке из неколико извора."
 }
