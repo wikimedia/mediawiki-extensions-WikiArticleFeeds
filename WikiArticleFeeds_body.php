@@ -275,12 +275,12 @@ class WikiArticleFeeds {
 	/**
 	 * Purges all associated feeds when an Article is purged.
 	 *
-	 * @param Article $article The Article which is being purged.
+	 * @param WikiPage $wikiPage The WikiPage which is being purged.
 	 * @return bool Always true to permit additional hook processing.
 	 */
-	public static function onArticlePurge( $article ) {
+	public static function onArticlePurge( WikiPage $wikiPage ) {
 		global $messageMemc, $wgDBname;
-		$titleDBKey = $article->mTitle->getPrefixedDBkey();
+		$titleDBKey = $wikiPage->mTitle->getPrefixedDBkey();
 		$keyPrefix = "{$wgDBname}:wikiarticlefeedsextension:{$titleDBKey}";
 		$messageMemc->delete( "{$keyPrefix}:atom:timestamp" );
 		$messageMemc->delete( "{$keyPrefix}:atom" );
