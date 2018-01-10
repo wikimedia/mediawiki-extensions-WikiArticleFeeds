@@ -3,10 +3,12 @@
 		"authors": [
 			"Justincheng12345",
 			"Mark85296341",
-			"LNDDYL"
+			"LNDDYL",
+			"Kly"
 		]
 	},
 	"wikiarticlefeeds-desc": "為 MediaWiki 頁面產生摘要",
 	"wikiarticlefeeds-tracking-category": "頁面正在生成RSS消息來源",
+	"wikiarticlefeeds-tracking-category-desc": "頁面產生出 RSS 消息來源。",
 	"wikiarticlefeeds_combined_description": "這是一個包含多個 feed 來源的復合源。"
 }
