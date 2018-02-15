@@ -1,22 +1,45 @@
 <?php
-
+/**
+ * This file is part of WikiArticleFeeds
+ *
+ * Copyright © 2007 Jim R. Wilson
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do
+ * so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
 class WikiArticleFeeds {
 	const VERSION = '0.74.0 20170203';
 
-	function feedStart( $text, $params = array(), Parser $parser ) {
+	function feedStart( $text, $params = [], Parser $parser ) {
 		$parser->addTrackingCategory( 'wikiarticlefeeds-tracking-category' );
 		return '<!-- FEED_START -->';
 	}
 
-	function feedEnd( $text, $params = array() ) {
+	function feedEnd( $text, $params = [] ) {
 		return '<!-- FEED_END -->';
 	}
 
-	function burnFeed( $text, $params = array() ) {
+	function burnFeed( $text, $params = [] ) {
 		return ( $params['name'] ? '<!-- BURN_FEED ' . base64_encode( serialize( $params['name'] ) ) . ' -->' : '' );
 	}
 
-	function itemTagsTag( $text, $params = array() ) {
+	function itemTagsTag( $text, $params = [] ) {
 		return ( $text ? '<!-- ITEM_TAGS ' . base64_encode( serialize( $text ) ) . ' -->' : '' );
 	}
 
@@ -39,11 +62,11 @@ class WikiArticleFeeds {
 	static function setup( Parser $parser ) {
 		global $wgWikiArticleFeeds;
 
-		$parser->setHook( 'startFeed', array( $wgWikiArticleFeeds, 'feedStart' ) );
-		$parser->setHook( 'endFeed', array( $wgWikiArticleFeeds, 'feedEnd' ) );
-		$parser->setHook( 'feedBurner', array( $wgWikiArticleFeeds, 'burnFeed' ) );
-		$parser->setHook( 'itemTags', array( $wgWikiArticleFeeds, 'itemTagsTag' ) );
-		$parser->setFunctionHook( 'itemtags', array( $wgWikiArticleFeeds, 'itemTagsFunction' ) );
+		$parser->setHook( 'startFeed', [ $wgWikiArticleFeeds, 'feedStart' ] );
+		$parser->setHook( 'endFeed', [ $wgWikiArticleFeeds, 'feedEnd' ] );
+		$parser->setHook( 'feedBurner', [ $wgWikiArticleFeeds, 'burnFeed' ] );
+		$parser->setHook( 'itemTags', [ $wgWikiArticleFeeds, 'itemTagsTag' ] );
+		$parser->setFunctionHook( 'itemtags', [ $wgWikiArticleFeeds, 'itemTagsFunction' ] );
 
 		return true;
 	}
@@ -60,16 +83,16 @@ class WikiArticleFeeds {
 			return true;
 		}
 
-		$rssArr = array(
+		$rssArr = [
 			'rel' => 'alternate',
 			'type' => 'application/rss+xml',
 			'title' => $out->getTitle()->getText() . ' - RSS 2.0',
-		);
-		$atomArr = array(
+		];
+		$atomArr = [
 			'rel' => 'alternate',
 			'type' => 'application/atom+xml',
 			'title' => $out->getTitle()->getText() . ' - Atom 0.3',
-		);
+		];
 
 		# Test for feedBurner presence
 		if ( preg_match( '/<!-- BURN_FEED ([0-9a-zA-Z\\+\\/]+=*) -->/m', $text, $matches ) ) {
@@ -148,10 +171,10 @@ class WikiArticleFeeds {
 		if ( preg_match( '/<!-- BURN_FEED ([0-9a-zA-Z\\+\\/]+=*) -->/m', $text, $matches ) ) {
 			$feedBurnerName = @unserialize( @base64_decode( $matches[1] ) );
 			if ( $feedBurnerName ) {
-				$feeds = array(
+				$feeds = [
 					'rss' => 'RSS',
 					'atom' => 'Atom'
-				);
+				];
 				foreach ( $feeds as $feed => $name ) {
 					$result .=
 					'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
@@ -166,10 +189,10 @@ class WikiArticleFeeds {
 		if ( !$burned ) {
 			$dbKey = $title->getPrefixedDBkey();
 			$baseUrl = $wgServer . $wgScript . '?title=' . $dbKey . '&action=feed&feed=';
-			$feeds = array(
+			$feeds = [
 				'rss' => 'RSS',
 				'atom' => 'Atom'
-			);
+			];
 			foreach ( $feeds as $feed => $name ) {
 				$result .=
 				'<span id="feed-' . htmlspecialchars( $feed ) . '">' .
@@ -239,8 +262,7 @@ class WikiArticleFeeds {
 			if (
 				time() - $feedLastmodTS < $wgFeedCacheTimeout ||
 				$feedLastmodTS > wfTimestamp( TS_UNIX, $lastmod )
-			)
-			{
+			) {
 				wfDebugLog( 'WikiArticleFeeds', "Loading feed from cache ($key; $feedLastmod; $lastmod)...\n" );
 				$cachedFeed = $messageMemc->get( $key );
 			} else {
@@ -259,7 +281,7 @@ class WikiArticleFeeds {
 		} else {
 			wfDebugLog( 'WikiArticleFeeds', 'Rendering new feed and caching it' );
 			ob_start();
-			WikiArticleFeeds::generateWikiFeed( $article, $feedFormat, $filterTags );
+			self::generateWikiFeed( $article, $feedFormat, $filterTags );
 			$cachedFeed = ob_get_contents();
 			ob_end_flush();
 
@@ -320,7 +342,7 @@ class WikiArticleFeeds {
 		$feedContentSections = $matches[1];
 
 		# Parse and process all feeds, collecting feed items
-		$items = array();
+		$items = [];
 		$feedDescription = '';
 		foreach ( $feedContentSections as $feedKey => $feedContent ) {
 			# Determine Feed item depth (what header level defines a feed)
@@ -365,7 +387,7 @@ class WikiArticleFeeds {
 				$tags = null;
 				if ( is_array( $filterTags ) && !empty( $filterTags ) ) {
 					if ( preg_match_all( '/<!-- ITEM_TAGS ([0-9a-zA-Z\\+\\/]+=*) -->/m', $seg, $matches ) ) {
-						$tags = array();
+						$tags = [];
 						foreach ( $matches[1] as $encodedString ) {
 							$t = @unserialize( @base64_decode( $encodedString ) );
 							if ( $t ) {
@@ -451,7 +473,7 @@ class WikiArticleFeeds {
 
 		# Push feed header
 		$tempWgVersion = $wgVersion;
-		$wgVersion .= ' via WikiArticleFeeds ' . WikiArticleFeeds::VERSION;
+		$wgVersion .= ' via WikiArticleFeeds ' . self::VERSION;
 		$feed->outHeader();
 		$wgVersion = $tempWgVersion;
 

@@ -120,15 +120,15 @@
 $wgAutoloadClasses['WikiArticleFeeds'] = __DIR__ . '/WikiArticleFeeds_body.php';
 
 # Credits
-$wgExtensionCredits['specialpage'][] = array(
+$wgExtensionCredits['specialpage'][] = [
 	'path' => __FILE__,
 	'name' => 'WikiArticleFeeds',
 	'license-name' => 'MIT',
-	'author' => array( 'Jim Wilson', 'Thomas Gries' ),
+	'author' => [ 'Jim Wilson', 'Thomas Gries' ],
 	'url' => '//www.mediawiki.org/wiki/Extension:WikiArticleFeeds',
 	'descriptionmsg' => 'wikiarticlefeeds-desc',
 	'version' => WikiArticleFeeds::VERSION,
-);
+];
 
 $wgMessagesDirs['WikiArticleFeeds'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['WikiArticleFeedsMagic'] = __DIR__ . '/WikiArticleFeeds.i18n.magic.php';
@@ -145,4 +145,4 @@ $wgHooks['UnknownAction'][] = 'WikiArticleFeeds::onUnknownAction';
 $wgHooks['ArticlePurge'][] = 'WikiArticleFeeds::onArticlePurge';
 
 $wgWikiArticleFeeds = new WikiArticleFeeds();
-$wgHooks['ParserBeforeTidy'][] = array( $wgWikiArticleFeeds, 'WikiArticleFeeds::itemTagsPlaceholderCorrections' );
+$wgHooks['ParserBeforeTidy'][] = [ $wgWikiArticleFeeds, 'WikiArticleFeeds::itemTagsPlaceholderCorrections' ];
