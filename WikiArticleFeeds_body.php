@@ -316,7 +316,7 @@ class WikiArticleFeeds {
 	 *
 	 * @param Article $article Article to be converted to RSS or Atom feed.
 	 * @param string $feedFormat A format type - must be either 'rss' or 'atom'
-	 * @param array $filterTags Tags to use in filtering out items.
+	 * @param array|null $filterTags Tags to use in filtering out items.
 	 */
 	public static function generateWikiFeed( $article, $feedFormat = 'atom', $filterTags = null ) {
 		global $wgOut, $wgServer, $wgFeedClasses, $wgVersion;
