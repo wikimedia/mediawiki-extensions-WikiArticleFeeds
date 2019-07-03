@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Waldir",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Waldyrious"
 		]
 	},
 	"wikiarticlefeeds-desc": "Produz feeds gerados a partir de páginas MediaWiki",
