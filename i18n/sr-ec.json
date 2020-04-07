@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rancher",
-			"Михајло Анђелковић",
+			"BadDog",
 			"Milicevic01",
 			"Obsuser",
-			"BadDog"
+			"Rancher",
+			"Михајло Анђелковић"
 		]
 	},
 	"wikiarticlefeeds-desc": "Производи фидове генерисане из Медијавики страница",

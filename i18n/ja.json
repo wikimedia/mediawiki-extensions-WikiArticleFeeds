@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dude1717",
 			"Fryed-peach",
-			"Shirayuki",
-			"Dude1717"
+			"Shirayuki"
 		]
 	},
 	"wikiarticlefeeds-desc": "MediaWiki のページから生成されたフィードを発行する",

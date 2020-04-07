@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo.mps",
-			"!Silent"
+			"!Silent",
+			"Eduardo.mps"
 		]
 	},
 	"wikiarticlefeeds-desc": "Produz \"feeds\" gerados a partir de artigos do MediaWiki",

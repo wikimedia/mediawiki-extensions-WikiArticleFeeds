@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Armando-Martin",
-			"Locos epraix",
 			"Dgstranz",
-			"Fitoschido"
+			"Fitoschido",
+			"Locos epraix"
 		]
 	},
 	"wikiarticlefeeds-desc": "Produce feeds generados a partir de páginas MediaWiki",
